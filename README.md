@@ -1,4 +1,4 @@
-## 酷码CMS
+## 酷码导航
 
 基于Codeigniter4和React简洁易用的网址导航
 
@@ -40,7 +40,7 @@ docker run -d -p 80:80 -v navigation-data:/opt/navigation/writable/data --name n
 
 ### 访问
 
-安装成功后，通过浏览器访问KumaCMS
+安装成功后，通过浏览器访问酷码导航
 
 ```
 # 前台
