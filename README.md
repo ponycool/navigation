@@ -98,4 +98,8 @@ Mail:pony@ponycool.com
 
 ## License
 
-Apache License 2.0
+For commercial sites, themes, projects, and applications, keep your source code private/proprietary by purchasing a [Commercial License](https://ponycool.com/navigation/price).
+
+Licensed under the GNU General Public License 3.0 for compatible open source projects and non-commercial use.
+
+Copyright 2025-present PonyCool
