@@ -4,13 +4,6 @@
 
 [官网](https://ponycool.com/navigation/index)
 
-[Demo](http://kumacms.com)
-
-[管理后台Demo](http://kumacms.com/admin/#/login)
-
-用户名: admin
-密码: kuma
-
 ## 预览
 
 #### WEB端
@@ -48,7 +41,7 @@ docker run -d -p 80:80 -v navigation-data:/opt/navigation/writable/data --name n
 # 后台
 地址: http://<服务器IP地址>:<服务运行端口>/admin/#/login
 用户名: admin
-密码: kuma
+密码: admin123!
 ```
 
 ### 配置

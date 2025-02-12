@@ -1,0 +1,8 @@
+{# 统计脚本 #}
+{% if settings.statistical_script %}
+    {{ settings.statistical_script | raw }}
+{% endif %}
+{# 客服脚本 #}
+{% if settings.service_script %}
+    {{ settings.service_script | raw }}
+{% endif %}

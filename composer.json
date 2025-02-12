@@ -8,7 +8,9 @@
         "codeigniter4/framework": "^4.6",
         "ramsey/uuid": "^4.7",
         "twig/twig": "^3.19",
-        "nesbot/carbon": "^3.8"
+        "nesbot/carbon": "^3.8",
+        "ext-bcmath": "*",
+        "ponycool/ponycool-library": "^1.0"
     },
     "license": "GPL-3.0",
     "autoload": {
