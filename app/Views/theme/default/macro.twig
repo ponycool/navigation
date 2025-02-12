@@ -1,0 +1,15 @@
+{# 重定向宏 #}
+{% macro redirect(context,url) %}
+    {% set parts = url | split('?') %}
+    {# 将参数转换为数组 #}
+    {% set params = parts[1]|default('')|split('&')|filter(v => v)|map(v => v|split('='))|reduce((carry, v) => carry|merge({(v[0]): (v[1]|default(''))}), {}) %}
+    {# 将 原始URL 中的参数合并到数组中 #}
+    {% set urlParams = urlParams() |default([]) %}
+    {% if urlParams %}
+        {% set params = urlParams | merge(params) %}
+    {% endif %}
+    {# 将数组转换为查询字符串 #}
+    {% set query = params|keys|map(key => "#{key|url_encode}=#{params[key]|url_encode}")|join('&') %}
+    {# 重新拼接 url #}
+    {{ "#{parts[0]}?#{query}"|raw }}
+{% endmacro %}

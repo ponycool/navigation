@@ -1,15 +1,8 @@
-## 酷码CMS
+## 酷码导航
 
 基于Codeigniter4和React简洁易用的网址导航
 
 [官网](https://ponycool.com/navigation/index)
-
-[Demo](http://kumacms.com)
-
-[管理后台Demo](http://kumacms.com/admin/#/login)
-
-用户名: admin
-密码: kuma
 
 ## 预览
 
@@ -40,7 +33,7 @@ docker run -d -p 80:80 -v navigation-data:/opt/navigation/writable/data --name n
 
 ### 访问
 
-安装成功后，通过浏览器访问KumaCMS
+安装成功后，通过浏览器访问酷码导航
 
 ```
 # 前台
@@ -48,7 +41,7 @@ docker run -d -p 80:80 -v navigation-data:/opt/navigation/writable/data --name n
 # 后台
 地址: http://<服务器IP地址>:<服务运行端口>/admin/#/login
 用户名: admin
-密码: kuma
+密码: admin123!
 ```
 
 ### 配置
@@ -98,4 +91,8 @@ Mail:pony@ponycool.com
 
 ## License
 
-Apache License 2.0
+For commercial sites, themes, projects, and applications, keep your source code private/proprietary by purchasing a [Commercial License](https://ponycool.com/navigation/price).
+
+Licensed under the GNU General Public License 3.0 for compatible open source projects and non-commercial use.
+
+Copyright 2025-present PonyCool

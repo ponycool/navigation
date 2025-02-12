@@ -1,0 +1,12 @@
+{% extends 'base.twig' %}
+
+{# CSS #}
+{% block css %}
+    {{ parent() }}
+{% endblock %}
+
+{# 主体 #}
+{% block content %}
+    {% include 'header.twig' %}
+    {% include 'footer.twig' %}
+{% endblock %}
