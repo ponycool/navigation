@@ -10,7 +10,8 @@
         "twig/twig": "^3.19",
         "nesbot/carbon": "^3.8",
         "ext-bcmath": "*",
-        "ponycool/ponycool-library": "^1.0"
+        "ponycool/ponycool-library": "^1.0",
+        "ext-iconv": "*"
     },
     "license": "GPL-3.0",
     "autoload": {
