@@ -23,10 +23,14 @@
 ### 使用docker运行
 
 ```shell
-sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 ponycool/navigation:latest
+sudo docker run -d --restart=unless-stopped -p 80:80 ponycool/navigation:latest
+# 国内源
+sudo docker run -d --restart=unless-stopped -p 80:80 registry.cn-qingdao.aliyuncs.com/ponycool/navigation:latest
 
 # 数据持久化，请使用具名挂载的方式进行挂载
 docker run -d -p 80:80 -v navigation-data:/opt/navigation/writable/data --name navigation ponycool/navigation:latest
+# 国内源
+docker run -d -p 80:80 -v navigation-data:/opt/navigation/writable/data --name navigation registry.cn-qingdao.aliyuncs.com/ponycool/navigation:latest
 ```
 
 ## 使用
