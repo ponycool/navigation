@@ -47,7 +47,11 @@ class Account extends Base
                 throw  new Exception('密码无效');
             }
 
+            $dt = Carbon::now();
             $expiresIn = WEEK;
+            $expiresAt = $dt->copy()
+                ->addWeek()
+                ->getTimestamp();
             $svc = new LoginService();
             $token = $svc->login($accountName, $pwd, $expiresIn);
             if ($token === false) {
@@ -59,6 +63,7 @@ class Account extends Base
                 'message' => '登录成功',
                 'token' => $token,
                 'expires_in' => $expiresIn,
+                'expired_at' => $expiresAt,
                 'iat' => $time->getTimestamp()
             ];
         } catch (Exception $e) {
