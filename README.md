@@ -43,7 +43,7 @@ docker run -d -p 80:80 -v navigation-data:/opt/navigation/writable/data --name n
 # 前台
 地址: http://<服务器IP地址>:<服务运行端口>
 # 后台
-地址: http://<服务器IP地址>:<服务运行端口>/admin/#/login
+地址: http://<服务器IP地址>:<服务运行端口>/admin/
 用户名: admin
 密码: admin123!
 ```
