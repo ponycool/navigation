@@ -251,7 +251,7 @@ EOF;
         $currStep = 1;
         $dates = [];
         foreach ($fields as $field) {
-            $fieldType = match ($field->type) {
+            $fieldType = match (strtolower($field->type)) {
                 'int', 'bigint', 'tinyint', 'smallint', 'mediumint', 'integer', 'bit' => 'int',
                 'float', 'double', 'decimal' => 'float',
                 default => 'string',
