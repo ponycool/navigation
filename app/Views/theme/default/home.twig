@@ -15,7 +15,7 @@
 {% block js %}
     {{ parent() }}
     <script type="module" crossorigin src="{{ "/js/index.js?v=#{version}" }}"></script>
-    <script src="{{ "/js/search.js?v=#{version}" }}"></script>
+    <script src="{{ "/js/search.js?v=#{version}" }}" type="text/javascript"></script>
 {% endblock %}
 
 {# 主体 #}
