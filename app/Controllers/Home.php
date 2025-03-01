@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Services\CarouselService;
+
 class Home extends Web
 {
     public function index(): void
@@ -17,12 +19,16 @@ class Home extends Web
             '中文网站导航',
         ];
         $keywords = $settings['site_keywords'] ?? implode(',', $keywords);
+        $carouselSvc = new CarouselService();
+        $carousel = $carouselSvc->getEnableList();
+        $data = [
+            'carousel' => $carousel,
+        ];
         $this->setTitle($title)
             ->setDescription($description)
             ->setKeywords($keywords)
             ->setTemplate('home')
             ->setPage('home')
-            ->render();
-
+            ->render($data);
     }
 }

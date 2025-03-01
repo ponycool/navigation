@@ -27,17 +27,8 @@
                 {% include 'nav.twig' %}
             </div>
             <div class="right-wrapper">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="/img/banner1.png" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="/img/banner2.png" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
+                {# 轮播 #}
+                {% include 'carousel.twig' %}
                 <ul class="component-wrapper">
                     <li>
                         <div class="global-wrapper next-holiday">

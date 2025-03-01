@@ -1,0 +1,13 @@
+{# 轮播 #}
+{% if carousel %}
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            {% for item in carousel %}
+                <div class="swiper-slide">
+                    <img src="{{ item.image }}" alt="{{ item.title }}">
+                </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+{% endif %}
