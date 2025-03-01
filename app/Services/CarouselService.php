@@ -119,14 +119,14 @@ class CarouselService extends BaseService
             return $data;
         }
 
-        $article = new Carousel();
-        $article->fill($data)
+        $carousel = new Carousel();
+        $carousel->fill($data)
             ->filterInvalidProperties();
         if (!is_null($data['image'] ?? null)) {
-            $article->setImage($data['image']);
+            $carousel->setImage($data['image']);
         }
 
-        $res = $this->insert($article);
+        $res = $this->insert($carousel);
         if ($res !== true) {
             return '创建轮播失败';
         }
