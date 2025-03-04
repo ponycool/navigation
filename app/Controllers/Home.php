@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Services\CarouselService;
+use App\Services\CategoryService;
 
 class Home extends Web
 {
@@ -21,8 +22,11 @@ class Home extends Web
         $keywords = $settings['site_keywords'] ?? implode(',', $keywords);
         $carouselSvc = new CarouselService();
         $carousel = $carouselSvc->getEnableList();
+        $categorySvc = new CategoryService();
+        $category = $categorySvc->getEnableList();
         $data = [
             'carousel' => $carousel,
+            'category' => $category
         ];
         $this->setTitle($title)
             ->setDescription($description)
