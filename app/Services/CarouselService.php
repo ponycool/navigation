@@ -107,7 +107,7 @@ class CarouselService extends BaseService
     }
 
     /**
-     * 创建文章
+     * 创建轮播
      * @param array $params
      * @return bool|string
      */
@@ -210,7 +210,6 @@ class CarouselService extends BaseService
      */
     public function update(array $params): bool|string
     {
-        // 准备数据
         $data = self::prepare($params);
         if (is_string($data)) {
             return $data;
@@ -224,9 +223,6 @@ class CarouselService extends BaseService
         $carousel = new Carousel();
         $carousel->fillData($data)
             ->filterInvalidProperties();
-        if (!is_null($data['image'] ?? null)) {
-            $carousel->setImage($data['image']);
-        }
 
         $res = $this->updateByUuid($carousel);
         if ($res !== true) {
