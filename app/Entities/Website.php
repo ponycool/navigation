@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Pony
- * Date: 2025/02/13
- * Time: 16:25 下午
+ * Date: 2025/03/06
+ * Time: 16:54 下午
  */
 declare(strict_types=1);
 
@@ -13,22 +13,26 @@ use Exception;
 
 class Website extends Base
 {
-    protected string $id = 0;
+    protected int $id = 0;
     protected string $uuid;
-    protected string $cid;
+    protected int $cid;
     protected string $website_name;
     protected string $url;
-    protected string $icon;
+    protected int $icon;
     protected string $icon_url;
     protected string $description;
-    protected string $rating;
-    protected string $audit_status;
-    protected string $audit_time;
-    protected string $sort_index;
+    protected int $rating;
+    protected int $click_count;
+    protected int $check_count;
+    protected string $last_check_time;
+    protected int $offline_count;
+    protected int $health_status;
+    protected int $sort_index;
+    protected int $status;
     protected string $created_at;
     protected string $updated_at;
     protected string $deleted_at;
-    protected string $deleted;
+    protected int $deleted;
     protected $dates = [
     ];
     protected $casts = [
@@ -89,18 +93,18 @@ class Website extends Base
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getCid(): string
+    public function getCid(): int
     {
         return $this->cid;
     }
 
     /**
-     * @param string $cid
+     * @param int $cid
      * @return $this
      */
-    public function setCid(string $cid): Website
+    public function setCid(int $cid): Website
     {
         $this->cid = $cid;
         $this->attributes['cid'] = $this->cid;
@@ -146,18 +150,18 @@ class Website extends Base
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getIcon(): string
+    public function getIcon(): int
     {
         return $this->icon;
     }
 
     /**
-     * @param string $icon
+     * @param int $icon
      * @return $this
      */
-    public function setIcon(string $icon): Website
+    public function setIcon(int $icon): Website
     {
         $this->icon = $icon;
         $this->attributes['icon'] = $this->icon;
@@ -203,18 +207,18 @@ class Website extends Base
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getRating(): string
+    public function getRating(): int
     {
         return $this->rating;
     }
 
     /**
-     * @param string $rating
+     * @param int $rating
      * @return $this
      */
-    public function setRating(string $rating): Website
+    public function setRating(int $rating): Website
     {
         $this->rating = $rating;
         $this->attributes['rating'] = $this->rating;
@@ -222,59 +226,135 @@ class Website extends Base
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getAuditStatus(): string
+    public function getClickCount(): int
     {
-        return $this->audit_status;
+        return $this->click_count;
     }
 
     /**
-     * @param string $audit_status
+     * @param int $click_count
      * @return $this
      */
-    public function setAuditStatus(string $audit_status): Website
+    public function setClickCount(int $click_count): Website
     {
-        $this->audit_status = $audit_status;
-        $this->attributes['audit_status'] = $this->audit_status;
+        $this->click_count = $click_count;
+        $this->attributes['click_count'] = $this->click_count;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCheckCount(): int
+    {
+        return $this->check_count;
+    }
+
+    /**
+     * @param int $check_count
+     * @return $this
+     */
+    public function setCheckCount(int $check_count): Website
+    {
+        $this->check_count = $check_count;
+        $this->attributes['check_count'] = $this->check_count;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getAuditTime(): string
+    public function getLastCheckTime(): string
     {
-        return $this->audit_time;
+        return $this->last_check_time;
     }
 
     /**
-     * @param string $audit_time
+     * @param string $last_check_time
      * @return $this
      */
-    public function setAuditTime(string $audit_time): Website
+    public function setLastCheckTime(string $last_check_time): Website
     {
-        $this->audit_time = $audit_time;
-        $this->attributes['audit_time'] = $this->audit_time;
+        $this->last_check_time = $last_check_time;
+        $this->attributes['last_check_time'] = $this->last_check_time;
         return $this;
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getSortIndex(): string
+    public function getOfflineCount(): int
+    {
+        return $this->offline_count;
+    }
+
+    /**
+     * @param int $offline_count
+     * @return $this
+     */
+    public function setOfflineCount(int $offline_count): Website
+    {
+        $this->offline_count = $offline_count;
+        $this->attributes['offline_count'] = $this->offline_count;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHealthStatus(): int
+    {
+        return $this->health_status;
+    }
+
+    /**
+     * @param int $health_status
+     * @return $this
+     */
+    public function setHealthStatus(int $health_status): Website
+    {
+        $this->health_status = $health_status;
+        $this->attributes['health_status'] = $this->health_status;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSortIndex(): int
     {
         return $this->sort_index;
     }
 
     /**
-     * @param string $sort_index
+     * @param int $sort_index
      * @return $this
      */
-    public function setSortIndex(string $sort_index): Website
+    public function setSortIndex(int $sort_index): Website
     {
         $this->sort_index = $sort_index;
         $this->attributes['sort_index'] = $this->sort_index;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus(): int
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     * @return $this
+     */
+    public function setStatus(int $status): Website
+    {
+        $this->status = $status;
+        $this->attributes['status'] = $this->status;
         return $this;
     }
 
@@ -303,9 +383,9 @@ class Website extends Base
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getDeleted(): string
+    public function getDeleted(): int
     {
         return $this->deleted;
     }
