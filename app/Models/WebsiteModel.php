@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Pony
  * Date: 2025/03/07
- * Time: 14:06 下午
+ * Time: 15:40 下午
  */
 declare(strict_types=1);
 
@@ -28,6 +28,7 @@ class WebsiteModel extends BaseModel
         'check_count',
         'last_check_time',
         'offline_count',
+        'offline_count_subtotal',
         'health_status',
         'sort_index',
         'creation_method',

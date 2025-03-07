@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Pony
  * Date: 2025/03/07
- * Time: 14:06 下午
+ * Time: 15:40 下午
  */
 declare(strict_types=1);
 
@@ -26,6 +26,7 @@ class Website extends Base
     protected int $check_count;
     protected string $last_check_time;
     protected int $offline_count;
+    protected int $offline_count_subtotal;
     protected int $health_status;
     protected int $sort_index;
     protected string $creation_method;
@@ -299,6 +300,25 @@ class Website extends Base
     {
         $this->offline_count = $offline_count;
         $this->attributes['offline_count'] = $this->offline_count;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOfflineCountSubtotal(): int
+    {
+        return $this->offline_count_subtotal;
+    }
+
+    /**
+     * @param int $offline_count_subtotal
+     * @return $this
+     */
+    public function setOfflineCountSubtotal(int $offline_count_subtotal): Website
+    {
+        $this->offline_count_subtotal = $offline_count_subtotal;
+        $this->attributes['offline_count_subtotal'] = $this->offline_count_subtotal;
         return $this;
     }
 
