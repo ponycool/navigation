@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Pony
- * Date: 2025/03/06
- * Time: 16:54 下午
+ * Date: 2025/03/07
+ * Time: 14:06 下午
  */
 declare(strict_types=1);
 
@@ -30,6 +30,7 @@ class WebsiteModel extends BaseModel
         'offline_count',
         'health_status',
         'sort_index',
+        'creation_method',
         'status',
     ];
     protected $useTimestamps = true;

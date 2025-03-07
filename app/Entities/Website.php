@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Pony
- * Date: 2025/03/06
- * Time: 16:54 下午
+ * Date: 2025/03/07
+ * Time: 14:06 下午
  */
 declare(strict_types=1);
 
@@ -28,6 +28,7 @@ class Website extends Base
     protected int $offline_count;
     protected int $health_status;
     protected int $sort_index;
+    protected string $creation_method;
     protected int $status;
     protected string $created_at;
     protected string $updated_at;
@@ -336,6 +337,25 @@ class Website extends Base
     {
         $this->sort_index = $sort_index;
         $this->attributes['sort_index'] = $this->sort_index;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCreationMethod(): string
+    {
+        return $this->creation_method;
+    }
+
+    /**
+     * @param string $creation_method
+     * @return $this
+     */
+    public function setCreationMethod(string $creation_method): Website
+    {
+        $this->creation_method = $creation_method;
+        $this->attributes['creation_method'] = $this->creation_method;
         return $this;
     }
 
