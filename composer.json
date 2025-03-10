@@ -11,7 +11,9 @@
         "nesbot/carbon": "^3.8",
         "ext-bcmath": "*",
         "ponycool/ponycool-library": "^1.0",
-        "ext-iconv": "*"
+        "ext-iconv": "*",
+      "ext-dom": "*",
+      "ext-libxml": "*"
     },
     "license": "GPL-3.0",
     "autoload": {
