@@ -495,7 +495,20 @@ class WebsiteService extends BaseService
                 if ($encoding && strtolower($encoding) !== 'utf-8') {
                     $html = mb_convert_encoding($html, 'UTF-8', $encoding);
                 }
-                $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
+
+                $html = mb_encode_numericentity(
+                    htmlspecialchars_decode(
+                        htmlentities(
+                            $html,
+                            ENT_NOQUOTES,
+                            'UTF-8',
+                            false
+                        ),
+                        ENT_NOQUOTES
+                    ),
+                    [0x80, 0x10FFFF, 0, ~0],
+                    'UTF-8'
+                );
 
                 // 初始化 DOMDocument 对象
                 $dom = new DOMDocument();
