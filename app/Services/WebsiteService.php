@@ -243,6 +243,13 @@ class WebsiteService extends BaseService
         return $res;
     }
 
+    public function getListByCond(array $params): array
+    {
+        $cid = $params['cid'] ?? null;
+        echo $cid;
+        return [];
+    }
+
     /**
      * 创建网站站点
      * @param array $params
@@ -488,13 +495,14 @@ class WebsiteService extends BaseService
                 if ($encoding && strtolower($encoding) !== 'utf-8') {
                     $html = mb_convert_encoding($html, 'UTF-8', $encoding);
                 }
+                $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
 
                 // 初始化 DOMDocument 对象
                 $dom = new DOMDocument();
                 $dom->encoding = 'UTF-8';
                 // 抑制 libxml 错误
                 libxml_use_internal_errors(true);
-                $dom->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+                $dom->loadHTML($html);
                 libxml_clear_errors();
 
                 // 获取标题
