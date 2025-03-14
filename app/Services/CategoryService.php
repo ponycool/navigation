@@ -203,7 +203,7 @@ class CategoryService extends BaseService
         if (is_null($category)) {
             return $res;
         }
-        $res = $this->getChildByPid($list, $id);
+        $res = $this->getChildByPid($list, (int)$id);
         if (count($res) > 0) {
             // 如果存在三级分类，则直接返回三级分类
             $tertiaryCategories = array_filter($res, function ($item) {
@@ -212,6 +212,8 @@ class CategoryService extends BaseService
             if (count($tertiaryCategories) > 0) {
                 return $tertiaryCategories;
             }
+        } else {
+            return [$category];
         }
         return $res;
     }
@@ -227,7 +229,7 @@ class CategoryService extends BaseService
         $res = [];
         foreach ($list as $item) {
             if ($item['pid'] == $pid) {
-                $children = $this->getChildByPid($list, $item['id']);
+                $children = $this->getChildByPid($list, (int)$item['id']);
                 if (!empty($children)) {
                     $res = array_merge($res, $children);
                 }

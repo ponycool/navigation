@@ -15,6 +15,9 @@ class Home extends Web
     public function index(): void
     {
         $cid = $this->request->getGet('cid');
+        if (!is_null($cid)) {
+            $cid = intval($cid);
+        }
         $settings = self::getSettings();
         $title = lang('App.home') . ' - ' . $settings['site_name'] ?? '酷码导航';
         $description = $settings['site_description'] ?? '酷码导航是一个轻量简洁易用的网址导航，汇集全网优质网址及资源的中文上网导航。';
