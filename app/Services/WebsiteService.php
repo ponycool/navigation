@@ -364,7 +364,7 @@ class WebsiteService extends BaseService
         $res = $this->updateById($website);
         // 保存点击记录
         $recordSvc = new RecordService();
-        $recordSvc->create($record['id'], $record['website_name'], $record['url']);
+        $recordSvc->create((int)$record['id'], $record['website_name'], $record['url']);
         return $res;
     }
 
