@@ -244,6 +244,25 @@ class WebsiteService extends BaseService
     }
 
     /**
+     * 根据条件获取站点列表
+     * @param array $params
+     * @return array
+     */
+    public function getListByCond(array $params): array
+    {
+        $cidList = $params['cidList'] ?? null;
+        if (empty($cidList)) {
+            return [];
+        }
+
+        $cond = [
+            'cid' => $cidList,
+            'status' => 1
+        ];
+        return $this->getByCond($cond);
+    }
+
+    /**
      * 创建网站站点
      * @param array $params
      * @return bool|string
@@ -489,12 +508,26 @@ class WebsiteService extends BaseService
                     $html = mb_convert_encoding($html, 'UTF-8', $encoding);
                 }
 
+                $html = mb_encode_numericentity(
+                    htmlspecialchars_decode(
+                        htmlentities(
+                            $html,
+                            ENT_NOQUOTES,
+                            'UTF-8',
+                            false
+                        ),
+                        ENT_NOQUOTES
+                    ),
+                    [0x80, 0x10FFFF, 0, ~0],
+                    'UTF-8'
+                );
+
                 // 初始化 DOMDocument 对象
                 $dom = new DOMDocument();
                 $dom->encoding = 'UTF-8';
                 // 抑制 libxml 错误
                 libxml_use_internal_errors(true);
-                $dom->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+                $dom->loadHTML($html);
                 libxml_clear_errors();
 
                 // 获取标题
