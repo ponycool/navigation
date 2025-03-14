@@ -4,11 +4,17 @@ namespace App\Controllers;
 
 use App\Services\CarouselService;
 use App\Services\CategoryService;
+use App\Services\WebsiteService;
 
 class Home extends Web
 {
+    /**
+     * 首页
+     * @return void
+     */
     public function index(): void
     {
+        $cid = $this->request->getGet('cid');
         $settings = self::getSettings();
         $title = lang('App.home') . ' - ' . $settings['site_name'] ?? '酷码导航';
         $description = $settings['site_description'] ?? '酷码导航是一个轻量简洁易用的网址导航，汇集全网优质网址及资源的中文上网导航。';
@@ -23,10 +29,19 @@ class Home extends Web
         $carouselSvc = new CarouselService();
         $carousel = $carouselSvc->getEnableList();
         $categorySvc = new CategoryService();
-        $category = $categorySvc->getEnableList();
+        $categories = $categorySvc->getEnableList();
+        $websiteCategories = $categorySvc->getChildById($categories, $cid);
+        $cidList = array_column($websiteCategories, 'id');
+        $cond = [
+            'cidList' => $cidList,
+        ];
+        $websiteSvc = new WebsiteService();
+        $website = $websiteSvc->getListByCond($cond);
         $data = [
             'carousel' => $carousel,
-            'category' => $category
+            'categories' => $categories,
+            'websiteCategories' => $websiteCategories,
+            'website' => $website,
         ];
         $this->setTitle($title)
             ->setDescription($description)

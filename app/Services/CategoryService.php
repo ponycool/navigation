@@ -181,6 +181,63 @@ class CategoryService extends BaseService
     }
 
     /**
+     * 根据父级ID获取子级分类
+     * @param array $list
+     * @param int|null $id
+     * @return array
+     */
+    public function getChildById(array $list, int|null $id): array
+    {
+        $res = [];
+        if (is_null($id)) {
+            foreach ($list as $item) {
+                if ($item['pid'] == 0 && $item['level'] == 1) {
+                    $id = $item['id'];
+                    break;
+                }
+            }
+        }
+        $ids = array_column($list, 'id');
+        $key = array_search($id, $ids);
+        $category = $key !== false ? $list[$key] : null;
+        if (is_null($category)) {
+            return $res;
+        }
+        $res = $this->getChildByPid($list, $id);
+        if (count($res) > 0) {
+            // 如果存在三级分类，则直接返回三级分类
+            $tertiaryCategories = array_filter($res, function ($item) {
+                return $item['level'] == 3;
+            });
+            if (count($tertiaryCategories) > 0) {
+                return $tertiaryCategories;
+            }
+        }
+        return $res;
+    }
+
+    /**
+     * 根据父级ID递归获取子级分类
+     * @param array $list
+     * @param int $pid
+     * @return array
+     */
+    public function getChildByPid(array $list, int $pid = 0): array
+    {
+        $res = [];
+        foreach ($list as $item) {
+            if ($item['pid'] == $pid) {
+                $children = $this->getChildByPid($list, $item['id']);
+                if (!empty($children)) {
+                    $res = array_merge($res, $children);
+                }
+                $res[] = $item;
+            }
+        }
+        return $res;
+    }
+
+    /**
      * 创建分类
      * @param array $params
      * @return bool|string

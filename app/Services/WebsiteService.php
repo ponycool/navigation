@@ -243,11 +243,23 @@ class WebsiteService extends BaseService
         return $res;
     }
 
+    /**
+     * 根据条件获取站点列表
+     * @param array $params
+     * @return array
+     */
     public function getListByCond(array $params): array
     {
-        $cid = $params['cid'] ?? null;
-        echo $cid;
-        return [];
+        $cidList = $params['cidList'] ?? null;
+        if (empty($cidList)) {
+            return [];
+        }
+
+        $cond = [
+            'cid' => $cidList,
+            'status' => 1
+        ];
+        return $this->getByCond($cond);
     }
 
     /**
