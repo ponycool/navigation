@@ -263,6 +263,18 @@ class WebsiteService extends BaseService
     }
 
     /**
+     * 获取启用的网站站点总数
+     * @return int
+     */
+    public function getEnableTotal(): int
+    {
+        $cond = [
+            'status' => 1
+        ];
+        return $this->getCount($cond);
+    }
+
+    /**
      * 创建网站站点
      * @param array $params
      * @return bool|string

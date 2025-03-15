@@ -40,11 +40,14 @@ class Home extends Web
         ];
         $websiteSvc = new WebsiteService();
         $website = $websiteSvc->getListByCond($cond);
+        // 收录数量
+        $websiteCount = $websiteSvc->getEnableTotal();
         $data = [
             'carousel' => $carousel,
             'categories' => $categories,
             'websiteCategories' => $websiteCategories,
             'website' => $website,
+            'websiteCount' => $websiteCount,
         ];
         $this->setTitle($title)
             ->setDescription($description)
