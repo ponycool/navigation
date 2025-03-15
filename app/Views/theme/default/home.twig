@@ -433,6 +433,16 @@
                 }
                 search(searchVal);
             });
+            {# 回车事件 #}
+            $('#search-input').on('keydown', function (e) {
+                if (e.keyCode === 13) {
+                    const searchVal = $('#search-input').val();
+                    if (searchVal === '') {
+                        return false;
+                    }
+                    search(searchVal);
+                }
+            });
         });
     </script>
 {% endblock %}
