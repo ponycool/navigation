@@ -25,7 +25,9 @@
                     {% if subNavs %}
                         <div class="secondary-menu">
                             {% for subNav in subNavs %}
-                                <p>{{ subNav.name }}</p>
+                                <a href="{{ "/?cid=#{subNav.id}" }}" target="_self">
+                                    <p>{{ subNav.name }}</p>
+                                </a>
                             {% endfor %}
                         </div>
                     {% endif %}
