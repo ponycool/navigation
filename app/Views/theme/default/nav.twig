@@ -1,5 +1,7 @@
 <div class="logo">
-    <img src="{{ "/img/logo-color.svg" }}" alt="">
+    <a href="/" target="_self">
+        <img src="{{ "/img/logo-color.svg" }}" alt="">
+    </a>
 </div>
 {% if categories %}
     {% set navs = categories|filter(item=>item.pid==0 and item.level==1) %}
