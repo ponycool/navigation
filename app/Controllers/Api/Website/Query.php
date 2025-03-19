@@ -23,7 +23,10 @@ class Query extends Base
     public function index(): void
     {
         $this->postFilter();
+        $this->validatePageParamsFromJsonInput();
         $svc = new WebsiteService();
+        $rules = $svc->getBaseRules();
+        $this->verifyJsonInputByRules($rules);
         try {
             $params = $this->getJsonInputParams();
             $list = $svc->getList($params);
