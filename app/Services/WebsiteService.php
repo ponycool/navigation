@@ -80,6 +80,30 @@ class WebsiteService extends BaseService
                     'in_list' => '参数网站站点状态[status]无效，必须为"true"或"false"',
                 ]
             ],
+            'startTime' => [
+                'rules' => 'if_exist|valid_date[Y-m-d]',
+                'errors' => [
+                    'valid_date' => '参数创建开始时间[startTime]无效，必须为"Y-m-d"格式的字符串',
+                ]
+            ],
+            'endTime' => [
+                'rules' => 'if_exist|valid_date[Y-m-d]',
+                'errors' => [
+                    'valid_date' => '参数创建结束时间[endTime]无效，必须为"Y-m-d"格式的字符串',
+                ]
+            ],
+            'lastCheckStartTime' => [
+                'rules' => 'if_exist|valid_date[Y-m-d]',
+                'errors' => [
+                    'valid_date' => '参数最后检查开始时间[lastCheckStartTime]无效，必须为"Y-m-d"格式的字符串',
+                ]
+            ],
+            'lastCheckEndTime' => [
+                'rules' => 'if_exist|valid_date[Y-m-d]',
+                'errors' => [
+                    'valid_date' => '参数最后检查结束时间[lastCheckEndTime]无效，必须为"Y-m-d"格式的字符串',
+                ]
+            ],
         ];
     }
 
@@ -154,8 +178,10 @@ class WebsiteService extends BaseService
         $url = $params['url'] ?? null;
         $healthStatus = $params['healthStatus'] ?? null;
         $status = $params['status'] ?? null;
-        $startTime = $params['start_time'] ?? null;
-        $endTime = $params['end_time'] ?? null;
+        $startTime = $params['startTime'] ?? null;
+        $endTime = $params['endTime'] ?? null;
+        $lastCheckStartTime = $params['lastCheckStartTime'] ?? null;
+        $lastCheckEndTime = $params['lastCheckEndTime'] ?? null;
         $keyword = $params['keyword'] ?? null;
         $isPage = $params['isPage'] ?? true;
         $limit = $params['limit'] ?? null;
@@ -191,12 +217,20 @@ class WebsiteService extends BaseService
             $sqlParams[] = $status;
         }
         if (!is_null($startTime)) {
-            $sql[] = "AND DATE_FORMAT(last_check_time, '%Y-%m-%d') >= ? ";
+            $sql[] = "AND strftime('%Y-%m-%d',created_at) >= ? ";
             $sqlParams[] = $startTime;
         }
         if (!is_null($endTime)) {
-            $sql[] = "AND DATE_FORMAT(last_check_time, '%Y-%m-%d') <= ? ";
+            $sql[] = "AND strftime('%Y-%m-%d',created_at) <= ? ";
             $sqlParams[] = $endTime;
+        }
+        if (!is_null($lastCheckStartTime)) {
+            $sql[] = "AND strftime('%Y-%m-%d',last_check_time) >= ? ";
+            $sqlParams[] = $lastCheckStartTime;
+        }
+        if (!is_null($lastCheckEndTime)) {
+            $sql[] = "AND strftime('%Y-%m-%d',last_check_time) <= ? ";
+            $sqlParams[] = $lastCheckEndTime;
         }
         if (!is_null($keyword)) {
             $sql[] = 'AND (website_name LIKE ? OR url LIKE ?) ';
@@ -456,29 +490,6 @@ class WebsiteService extends BaseService
     }
 
     /**
-     * 检查网站健康
-     * @param string $url
-     * @return bool
-     */
-    private function checkWebsiteHealth(string $url): bool
-    {
-        $client = new Client([
-            'timeout' => 5
-        ]);
-        try {
-            $response = $client->request('GET', $url);
-            $statusCode = $response->getStatusCode();
-            if ($statusCode === 200) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (GuzzleException) {
-            return false;
-        }
-    }
-
-    /**
      * 解析网站
      * @param string $url
      * @return false|array
@@ -612,6 +623,29 @@ class WebsiteService extends BaseService
                 ];
             }
             return false;
+        } catch (GuzzleException) {
+            return false;
+        }
+    }
+
+    /**
+     * 检查网站健康
+     * @param string $url
+     * @return bool
+     */
+    private function checkWebsiteHealth(string $url): bool
+    {
+        $client = new Client([
+            'timeout' => 5
+        ]);
+        try {
+            $response = $client->request('GET', $url);
+            $statusCode = $response->getStatusCode();
+            if ($statusCode === 200) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (GuzzleException) {
             return false;
         }
