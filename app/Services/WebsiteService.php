@@ -188,7 +188,7 @@ class WebsiteService extends BaseService
 
         $sql = [
             'SELECT id,uuid,cid,website_name,url,icon,icon_url,description,rating,click_count,check_count,last_check_time,',
-            'offline_count,health_status,sort_index,creation_method,status,created_at,updated_at ',
+            'offline_count,offline_count_subtotal,health_status,sort_index,creation_method,status,created_at,updated_at ',
             'FROM swap_website ',
             'WHERE deleted_at IS NULL ',
             'AND deleted = ? ',
