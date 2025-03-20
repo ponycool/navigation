@@ -327,6 +327,11 @@ class WebsiteService extends BaseService
         if (!empty($record)) {
             return '网站站点已存在';
         }
+
+        if ($data['status'] === 1) {
+            $data['health_status'] = 1;
+        }
+
         $website = new Website();
         $website->fill($data)
             ->filterInvalidProperties();

@@ -32,6 +32,7 @@ class Enable extends Base
             $svc = new WebsiteService();
             $data = [
                 'offline_count_subtotal' => 0,
+                'health_status' => 1,
                 'status' => 1,
             ];
             $cond = [
