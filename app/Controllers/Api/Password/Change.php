@@ -7,20 +7,20 @@
  */
 declare(strict_types=1);
 
-namespace App\Controllers\Api\User;
+namespace App\Controllers\Api\Password;
 
 use App\Controllers\Api\Base;
 use App\Enums\Code;
 use App\Services\UserService;
 use Exception;
 
-class Password extends Base
+class Change extends Base
 {
     /**
      * 更改密码
      * @return void
      */
-    public function change(): void
+    public function index(): void
     {
         $this->postFilter();
         $svc = new UserService();
