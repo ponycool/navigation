@@ -28,7 +28,7 @@
                         <div class="secondary-menu">
                             {% for subNav in subNavs %}
                                 <a href="{{ "/?cid=#{subNav.id}" }}" target="_self">
-                                    <p class="menu-active" >{{ subNav.name }}</p>
+                                    <p {{ cid==subNav.id?'class="menu-active"':'' }} >{{ subNav.name }}</p>
                                 </a>
                             {% endfor %}
                         </div>
