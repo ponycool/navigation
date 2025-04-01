@@ -3,6 +3,7 @@
 {# CSS #}
 {% block css %}
     {{ parent() }}
+    <link rel="stylesheet" crossorigin href="{{ "/css/global.css?v=#{version}" }}">
     <link rel="stylesheet" crossorigin href="{{ "/css/index.css?v=#{version}" }}">
     <style>
         .web .shortcut-page {
@@ -31,8 +32,10 @@
                 {# 轮播 #}
                 {% include 'carousel.twig' %}
                 <ul class="component-wrapper">
-                    <li>
-                        <div class="global-wrapper next-holiday">
+                    <li class="next-holiday">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAABFCAYAAAD5E+5FAAAABHNCSVQICAgIfAhkiAAABGxJREFUeJztW1Fy3CAMFZneK/RkYU+GczL1Y81GliUhAetN2r6ZTCZGPOkhGbBNAAaBiGW076vxFu2AiAUREQDeHbZ5t694Rh4J+HI0wb2gmZ2Ecl3UE9iz9oBi0xP7cwQDAPASFdr/juxSMAGVtVVB5M8VC3AubZppQ3B5Ycgmfs103oVlcukGAJBSKvtAFdJGZ/vP/feWUtoYZyac2853sLkMQiZp9ive72lteeqhIlkNdu6qtb9SdCW/PbP2iHjOW1ZoSYZI6mADgA84lnK7zq9FcCM8B7SSRjytFLeUUuH2U1iYNS2TJZIxJZ4p0YdM72QfAzw3kCeqhtOExfxmOFbMBmBmG1JKapW6oY0oxiemip1JB+09+YlLik3ge/x4BfN1uBgDwYPqBu0c4B4P9yUOBm3viW6ERbhGHXN4K6HyIPBrWfL01zi7NpZoRFswojGhoLBjiwaBxxIt5GcWRXXWKb2KysgyLk+QFe3HUu/9zmNr/ejgNY6zcEfQfIdEURiHZXvgHBgwD6rALVcY6iVaWkerXeHT+iDiqUq8gg6+O/Z6hg1RlbSrgTChfJStWbYQu64AFFYZR79Ylr2ZEHhER0qAueOjCPwH3wovxTkedLy4sxiVoAr3Q2yqZEeCV7eqgvui8KpxmkSTosX3aJJ4y84rmrRbWS9ioKiXZo2KVgLKwrWDHWur2Ln3hX5q1qVArc2DOoLMTh1AEshBuMNXNtpUPkV84RlUgzFEc2HcrpAAPIK7lSfEUByc9cGHnl2L7swTVBN9Km3Fh5plYlMlH17uRqBvzG1nmuhD4Pu1U/CKD5Nb4veKfsShjabTmUt0IBO8tNW4PINjOQp1EESXVUFh5yuKYRvS8AbnVzs93Njf2tdLaped3NRu69hG454DK1/tvjPXbId9dsQxVt6joOXlCKobWKS0hT7XiGZOi9J+msUNLvcACfzXid4dV00QF20MTri0WT+R96nYnWv3tkd0uLQZf45HfSQpPAgk76EG+CiX52EmvIRGY6Kds1COEkqQt3tf8wEO8o/fz0J2lwgXBjKz9qH7mfaP2FuBrRau9uO+hwQE0c6RjXy0WwW6o9uucPg2XB6Ow3ME22C/pyB8YpAgB2zpPpn3o39fsp9+mzjEMtrvAaHKpjk9mMk0f9pyY+KWWoImOirAPFkg2SvXc9DvWgSXrXCw0rKFE9vPGTzKez+x8xvs++qW7rBsIqAT1yrOLsTDKvh18OUdjNN9EbTq0DgQMb/sZOC/gPljSU6Q6gE4b1A+YbKSvhWCEyTiBedAEy5668CPLuL4QbyGDe4T50Y4M6xY5viyMYhM+Eae2CyU1fEmnCwllokCz3liOxyCnY15GdB/lmwU5dUaT3iy4KXClyxZeH9PlVdw9bDi9O/MUxYALJxR/f7KLMf0qF2Z5YbZbE9nGl7weIiTs/eU6FnnE5jyO/V/WTu2BRw/wed//DiEZ0G8+ltwH5/R/9MauafzQJ9vhRHR2+ogJhH+QPAHXenIpGszPBkAAAAASUVORK5CYII="
+                             alt=""/>
+                        <div class="global-wrapper">
                             <p class="label">距离清明节</p>
                             <p class="days">56 <span>天</span></p>
                             <div class="holiday-time">
@@ -42,7 +45,7 @@
                                 <p class="end-time">04/06</p>
                             </div>
                         </div>
-                        <hr>
+                        <hr/>
                         <div class="holiday-list">
                             <div class="holiday-item">
                                 <div class="holiday">
@@ -74,20 +77,21 @@
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="global-wrapper current-date ">
-                            <p class="label">2025年2月</p>
-                            <p class="days">07</p>
+                    <li class="current-date">
+                        <div class="global-wrapper">
+                            <p class="label"><i></i><span></span><i></i></p>
+                            <p class="days"></p>
                             <div>
-                                <span>弟38天</span>
-                                <span>星期五</span>
+                                <span class="week"></span>
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="global-wrapper college-entrance-examination">
-                            <p class="label">距离2025高考还有</p>
-                            <p class="days">120 <span>天</span></p>
+                    <li class="college-entrance-examination">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAAyCAYAAAD4FkP1AAAAAXNSR0IArs4c6QAABTBJREFUaEPVmmvIZVMYx///iNzKdWLIDMo0LuM2NPKBkQZTI8SkEKLGbQhfKInmAx8kjWGmqQmDfBgaIjKjzEijMcZtXErkdZfLB1EM8rf/b+uc2ec9+5yz1t5r12vV6dQ5z3rW89tr7fU8z3oW0bBJOgzAsQCOATAbwCkADi6p/QzAJwBuIfl5w+GSujNJuiQs6VQbDODiBB1Hk/w4Qb6RaDKcpEMA3BrAUgf/DsA1JF9O7VhHPglO0s4A3gzLr854nT5PA1hGclMTJaP6psItBbB4lNKE/+8heXeCfJJoNJykRQBWJGmPE15MclmcaJpUCtyWDMuxyrqvARxO8p8000dLp8D9VLwn+49WWUtiCknrz9qi4CTtB+DnrCP3KptB8tPc+mPhTgDwTu7BS/rmkNycW38snCOQD3IPXtI3i+S23Ppj4XYBsD334CV9u5L8K7f+KDgPKukLANNzGwBgjKTj0+wtBe4VAPOyWwCsI3l2C3qRAvdQsWPe2IIRDsNyRj1dE1PgXgNwRgtwrYVgUXCSDGW4ttpckhtyK4+FO6rI2z7KPXhJXyt5XhRc2C1fAnBuC4BbSTqDz95S4C4vAtzV2S0AFpFc2YLe+N0yzN5yANdmNGQbyVkZ9fWoip65AOd3zzHgnpkMuoPkfZl09alJgguA9wK4PYNBvwJwTPlVBl2VKurA+dhuI4AjGhq1nOT1DXUM7Z4MF2bvPADPNzDM6dM5bSSoZZtqwQVAL00v0dTm7MJg2Z32RENqwwXAJwBclkh3A8lHEvvUEm8KlxyWsTjLq2VpjU6NBqoTc/6f4Oo49ZtIOn1qvSXPnKR9igzhdAB3AjippoUOtx4DsKWN88qOTVFwki4KpamTw/fuI6Bc8JgaAf6jAQG8bViSYxF9okWGwkmaD+A2AGdGawTGk09JpwFYC+CAyL6/h9lcmeskrBIulKlcoLg60rCy2FSS3wdX8TCA2Cjky5B1GO6bGuP2demDk+Riov1Q3aPzBUV+9mKAi8kB7StfILlmGJCkGQD8ORHA+z5HHVWp7YGTdCmAJxs+NT911/BcpHT1dVibTXLrIAFJTmIvCJ+ZA+RceVpF0u9tT+vCSZrmM8SGYCndK12CpCkB5sLEo0Q/0Mf9nhcBuTeqHcmqpGeLqbbCps0F/qcA7A3g5gHK3iPp+kO3hc3Ls2Qb9m1gxB9h/LXjM5e5sDi/U/MuVsOjxWq4ssLQB0n6ssB4qxPpRMCPUZKfsF/QQyM6xIjsRvLPYPSgxHYFyetKcEcW2f39ABbEDBAps8Zw5wd/FNlnpFi31lbscC7sX1LRY31R7O87mpfkIMG7tT916hL/Fj75dR8eO4Y13AM1r10MopxHcn2YOb/kcwYIOiK5quo/SXuUIB1IjGrvArAr8WvgB9qF83WJUVv2KOXl/33PZFWAszM/cEhn+7ilVdt4acl2ZvOsIvsvb0K+jfRGcXPpmY5fDWOOH/t3Zk4plkfILiF5VxgoVrd36ldJDr0tIckxrf3dDyS/HTDrPXCusCwM3j82DhzGuJrkFZK8nf8S8TDKIt2iiKTpKYG0JBcwt0vaAVfWLOmgAOlzyb3C+WTnu+q3naqMJzlX0vFhB/wbgKumVd++nuHfu9+dSzeSPOsOvJ8rnPkmkvafPS3s9B7Hu+xvIWB3rW+aT7GjUp7Ep59FPMCVdfm+yocA3iqgjyugDVXeUftKYZMZLnWjWzgx+J7McClls80k+1zOpIULu61P15aEZeh3f2JzoL9hkL/8DzuFtgyuwXUSAAAAAElFTkSuQmCC"
+                             alt=""/>
+                        <div class="global-wrapper">
+                            <p class="label"></p>
+                            <p class="days"><span></span>天</p>
                             <div>
                                 <span>-</span>
                                 <span>2025/06/07</span>
@@ -95,10 +99,11 @@
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="global-wrapper off-work">
+                    <li class="off-work">
+                        <div class="global-wrapper">
                             <p class="label">距离下班还有</p>
-                            <p class="days">4.2 <span>小时</span></p>
+                            <img src="/img/off-work.gif" alt=""/>
+                            <p class="days"><span></span>小时</p>
                             <div>
                                 <span>-</span>
                                 <span>17:00</span>
@@ -106,16 +111,18 @@
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <li class="sponsor-wrapper">
                         <div class="global-wrapper sponsor">
                             <p class="label">支付宝打赏</p>
-                            <img src="/img/zhifubao.png" alt="">
+                            <img src="/img/zhifubao.png" alt=""/>
                         </div>
                     </li>
-                    <li>
+                    <li class="running-time-wrapper">
                         <div class="global-wrapper running-time">
                             <p class="label">已稳定运行</p>
-                            <p class="days">6 <span>年</span></p>
+                            <img src="data:image/png;base64,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"
+                                 alt=""/>
+                            <p class="days"><span></span> 年</p>
                             <div>自 <span>2019/06/01</span>开始</div>
                         </div>
                     </li>
@@ -126,21 +133,26 @@
                     <h1>收录热门导航</h1>
                     <ul>
                         <li>
-                            <a href="https://ponycool.com" target="_blank"
-                               ping="/api/open/track/ping?url=https://v2ex.com">
+                            <a href="">
                                 <div>
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt="">
-                                    <h6>我的主页test</h6>
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAL4AAABnCAYAAAC+Rfh6AAAABHNCSVQICAgIfAhkiAAAAptJREFUeJzt3MFtVTEURdEfSkrEmF8M1AFUwSDFJEyRSEthygSRn2f73Pu8VgVP0dGW7US5+3h5fb3wT7/8dE7pQ/oDqnv8lv4CZjD8/3j8bvxndOeo8zaOPOei+G+k+uei+DdQ/fNQ/Buo/nkY/g1cdM/D8NmS4d9I9c/B5fadXHR7U/x3Uv3eFP8A1e9L8Q9Q/b4U/yDV70nxD1L9ngz/IM+bPTnqDOLI04viD6L6vSj+QKrfh+IPpPp9KP5gqt+D4g+m+j0Y/mCeN3swfLZk+BOofn0utxO56Nal+BOpfl2KP5nq16T4k6l+TYq/gOrXo/gLqH49hr+A5816DJ8tGf4iql+Ly+1iLro1KP5iql+D4geofp7iB6h+nuKHqH6W4oeofpbhh3jezDJ8tuSMH+asn6H4YY47GYpfgOqvp/gFqP56hs+WDL+Al5/pL9iPM34RzvlrKX4Rv5/TX7AXwy/i5Tn9BXsxfLZk+GzJ8NmS4Rdxf01/wV4Mny0ZPlsyfLbkN7dF+M3tWopfwMM1/QX7MfwCPn9Nf8F+HHUKcMxZT/HDHHMyDD/MMSfDUSfMMSdD8YMcc3IMP8gxJ8fwQx6uip9k+CFqn2X4AWqfZ/gBap/nOTPAE2ae4i/miFOD4S/mmFOD4S/kUluH4S+k9nUY/iJqX4vhL3L/Kf0F/M1z5iKeMGtR/AUcceox/AVcausx/Mlcamsy/MnUviaX28lcamtS/Im+qH1Zhj+Rf/1dl+FP4lJbm+FP4lJbm+FPoPb1Gf4Eal+f58wJPGHWp/iDOeL0YPiDOeb0YPgDudT2YfgDqX0fhj+I2vdi+IOofS+eMwfxhNmL4g/grzD7UfyDHq6Xy4+n9FdwK8U/yNm+J8M/wEtOX38AlROzxGBoJ0EAAAAASUVORK5CYII="
+                                         alt="" class="desktop-bg"/>
+                                    <img src="data:image/svg+xml,%3csvg%20width='14.000000'%20height='14.000000'%20viewBox='0%200%2014%2014'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdesc%3e%20Created%20with%20Pixso.%20%3c/desc%3e%3cdefs/%3e%3crect%20id='ico'%20width='14.000000'%20height='14.000000'%20fill='%23FFFFFF'%20fill-opacity='0'/%3e%3cpath%20id='矢量%201'%20d='M2%208.2C1.72%208.04%201.65%207.64%201.84%207.31C1.93%207.14%202.06%207.03%202.21%206.97L2.21%206.96L7.78%203.42L7.78%203.42C7.78%203.42%208.09%203.25%208.25%203.36C8.42%203.47%208.59%203.69%208.46%204.36C8.46%204.36%208.46%204.39%208.45%204.4C8.29%205.09%208.52%205.76%209.08%206.07C9.63%206.38%2010.31%206.23%2010.82%205.72C10.83%205.72%2010.84%205.7%2010.85%205.7C11.35%205.24%2011.63%205.27%2011.81%205.35C11.99%205.44%2012%205.79%2012%205.79L12%205.79L11.92%2012.42L11.92%2012.42C11.94%2012.57%2011.91%2012.75%2011.82%2012.91C11.63%2013.25%2011.26%2013.4%2010.98%2013.24C10.86%2013.17%2010.78%2013.06%2010.74%2012.92L10.74%2012.93C10.09%2011.11%209.31%209.64%207.63%208.7L7.61%208.69C5.93%207.74%204.27%207.84%202.39%208.24L2.39%208.24C2.26%208.27%202.12%208.27%202%208.2Z'%20fill='%23FFFFFF'%20fill-opacity='1.000000'%20fill-rule='nonzero'/%3e%3cpath%20id='矢量%202'%20d='M11.65%203.57L9.73%202.48C9.46%202.34%209.47%201.95%209.74%201.79L10.73%201.2L11.72%200.62C11.99%200.45%2012.32%200.64%2012.31%200.95L12.29%202.08L12.26%203.2C12.25%203.52%2011.91%203.72%2011.65%203.57Z'%20fill='%233DF8FF'%20fill-opacity='1.000000'%20fill-rule='nonzero'/%3e%3c/svg%3e"
+                                         alt="" class="logo"/>
+                                    <div>
+                                        <p>我的桌面</p>
+                                        <span>My Desktop</span>
+                                    </div>
                                 </div>
-                                <p>关于我的主页的简短描述介绍</p>
+                                <img src="data:image/png;base64,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"
+                                     alt="" class="desktop-ai"/>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <div>
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt="">
+                                         alt=""/>
                                     <h6>我的主页</h6>
                                 </div>
                                 <p>关于我的主页的简短描述介绍</p>
@@ -150,7 +162,7 @@
                             <a href="">
                                 <div>
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt="">
+                                         alt=""/>
                                     <h6>我的主页</h6>
                                 </div>
                                 <p>关于我的主页的简短描述介绍</p>
@@ -160,7 +172,7 @@
                             <a href="">
                                 <div>
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt="">
+                                         alt=""/>
                                     <h6>我的主页</h6>
                                 </div>
                                 <p>关于我的主页的简短描述介绍</p>
@@ -170,7 +182,7 @@
                             <a href="">
                                 <div>
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt="">
+                                         alt=""/>
                                     <h6>我的主页</h6>
                                 </div>
                                 <p>关于我的主页的简短描述介绍</p>
@@ -180,7 +192,7 @@
                             <a href="">
                                 <div>
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt="">
+                                         alt=""/>
                                     <h6>我的主页</h6>
                                 </div>
                                 <p>关于我的主页的简短描述介绍</p>
@@ -190,7 +202,7 @@
                             <a href="">
                                 <div>
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt="">
+                                         alt=""/>
                                     <h6>我的主页</h6>
                                 </div>
                                 <p>关于我的主页的简短描述介绍</p>
@@ -200,7 +212,7 @@
                             <a href="">
                                 <div>
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt="">
+                                         alt=""/>
                                     <h6>我的主页</h6>
                                 </div>
                                 <p>关于我的主页的简短描述介绍</p>
@@ -213,128 +225,47 @@
                 {% include 'footer.twig' %}
             </div>
         </div>
-        <div class="shortcut-page">
-            <div class="time-date">
-                <p class="time"></p>
-                <p class="date"></p>
-            </div>
-            <div class="search-wrapper">
-                <div class="select">
-                    <span>站内</span>
-                    <img src="data:image/svg+xml,%3csvg%20width='24.000000'%20height='24.000000'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdesc%3e%20Created%20with%20Pixso.%20%3c/desc%3e%3cdefs/%3e%3crect%20id='画板%209'%20width='24.000000'%20height='24.000000'%20fill='%23FFFFFF'%20fill-opacity='0'/%3e%3cpath%20id='矢量%204'%20d='M12%2015.26L3.11%205.49C2.54%204.87%201.61%204.83%200.99%205.39C0.37%205.96%200.33%206.89%200.89%207.51L10.86%2018.47C10.88%2018.49%2010.91%2018.52%2010.93%2018.55C11.23%2018.84%2011.61%2019%2012%2019C12.38%2019%2012.76%2018.84%2013.06%2018.55C13.08%2018.52%2013.11%2018.49%2013.13%2018.47L23.1%207.51C23.66%206.89%2023.62%205.96%2023%205.39C22.38%204.83%2021.45%204.87%2020.88%205.49L12%2015.26Z'%20fill='%23000000'%20fill-opacity='1.000000'%20fill-rule='evenodd'/%3e%3c/svg%3e"
-                         alt="">
-                </div>
-                <ul class="select-list">
-                    <li>站内</li>
-                    <li>百度</li>
-                    <li>谷歌</li>
-                    <li>Bing</li>
-                </ul>
-                <hr>
-                <input type="text" placeholder="搜索网站">
-                <button>
-                    <img src="/img/search.svg" alt="">
-                </button>
-            </div>
-            <ul class="shortcut-label-list">
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                 alt="">
-                        </div>
-                        <p>QQ音乐</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                 alt="">
-                        </div>
-                        <p>QQ音乐</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                 alt="">
-                        </div>
-                        <p>QQ音乐</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                 alt="">
-                        </div>
-                        <p>QQ音乐</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                 alt="">
-                        </div>
-                        <p>QQ音乐</p>
-                    </a>
-                </li>
-            </ul>
-            <div class="shortcut-bottom-nav">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <img src="{{ "data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='_图层_1'%20data-name='图层%201'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='0%200%20566.93%20566.93'%3e%3cdefs%3e%3cstyle%3e%20.cls-1%20{%20fill:%20%23fff;%20}%20.cls-2%20{%20fill:%20url(%23_未命名的渐变_3);%20}%20%3c/style%3e%3clinearGradient%20id='_未命名的渐变_3'%20data-name='未命名的渐变%203'%20x1='0'%20y1='283.46'%20x2='566.93'%20y2='283.46'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='0'%20stop-color='%23ff8c25'/%3e%3cstop%20offset='1'%20stop-color='%23ff4513'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect%20class='cls-2'%20x='0'%20y='0'%20width='566.93'%20height='566.93'%20rx='48.24'%20ry='48.24'/%3e%3cg%3e%3cpath%20class='cls-1'%20d='M377.06,82.65c-22.23-11.09-45.85-19.46-70.34-24.79-78.94-17.19-139.36,1.76-181.72,27.44C67.1,120.39,31.58,183.49,31.32,251.19c0,.34,0,.68,0,1.02,0,145.15,119.15,262.83,266.14,262.83,0,0,111.35,14.34,81.94-93.02,0,0-6.51-34.56-81.94-45.59-75.42-11.03-157.05-131.62-131.31-208.1,0,0,27.21-131.62,206.63-83.09l18.39,4.92'/%3e%3cpath%20class='cls-1'%20d='M468.41,152.45c-2.9-3.21-5.8-6.31-8.69-9.29l8.37,13.39c15.9,25.45,26.48,53.97,30.11,83.75,4.7,38.53-2,76.91-42.7,108.92-60.3,47.43-12.5,82.36-12.5,82.36,65.08,33.46,84.19-64.71,84.19-64.71,26.76-91.85-15.02-165.91-58.78-214.42'/%3e%3cg%3e%3crect%20class='cls-1'%20x='460.71'%20y='202.11'%20width='13.23'%20height='42.81'%20rx='2.9'%20ry='2.9'%20transform='translate(690.84%20-243.81)%20rotate(90)'/%3e%3crect%20class='cls-1'%20x='189.1'%20y='202.29'%20width='13.58'%20height='43.01'%20rx='2.9'%20ry='2.9'%20transform='translate(419.69%2027.9)%20rotate(90)'/%3e%3c/g%3e%3cg%3e%3crect%20class='cls-1'%20x='299.44'%20y='92.28'%20width='13.23'%20height='42.81'%20rx='2.9'%20ry='2.9'%20transform='translate(-18.03%2074.15)%20rotate(-13.42)'/%3e%3crect%20class='cls-1'%20x='362.54'%20y='337.02'%20width='13.58'%20height='43.01'%20rx='2.9'%20ry='2.9'%20transform='translate(-73.13%2095.52)%20rotate(-13.42)'/%3e%3c/g%3e%3cpath%20class='cls-1'%20d='M391.81,180.39c-3.7-3.45-9.5-3.26-12.95,.44l-49.98,53.53-27.84-26c-3.7-3.45-9.5-3.26-12.95,.44-3.45,3.7-3.26,9.5,.44,12.95l27.84,26-6.06,6.49c-3.45,3.7-3.26,9.5,.44,12.95h0c3.7,3.45,9.5,3.26,12.95-.44l6.06-6.49,7.23,6.75c3.7,3.45,9.5,3.26,12.95-.44h0c3.45-3.7,3.26-9.5-.44-12.95l-7.23-6.75,49.98-53.53c3.45-3.7,3.26-9.5-.44-12.95Z'/%3e%3c/g%3e%3c/svg%3e" }}"
-                                 alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                 alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src={{ "data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='_图层_1'%20data-name='图层%201'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='0%200%20566.93%20566.93'%3e%3cdefs%3e%3cstyle%3e%20.cls-1%20{%20fill:%20%23fff;%20}%20.cls-2%20{%20fill:%20url(%23_未命名的渐变_3);%20}%20%3c/style%3e%3clinearGradient%20id='_未命名的渐变_3'%20data-name='未命名的渐变%203'%20x1='0'%20y1='283.46'%20x2='566.93'%20y2='283.46'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='0'%20stop-color='%23ff8c25'/%3e%3cstop%20offset='1'%20stop-color='%23ff4513'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect%20class='cls-2'%20x='0'%20y='0'%20width='566.93'%20height='566.93'%20rx='48.24'%20ry='48.24'/%3e%3cg%3e%3cpath%20class='cls-1'%20d='M377.06,82.65c-22.23-11.09-45.85-19.46-70.34-24.79-78.94-17.19-139.36,1.76-181.72,27.44C67.1,120.39,31.58,183.49,31.32,251.19c0,.34,0,.68,0,1.02,0,145.15,119.15,262.83,266.14,262.83,0,0,111.35,14.34,81.94-93.02,0,0-6.51-34.56-81.94-45.59-75.42-11.03-157.05-131.62-131.31-208.1,0,0,27.21-131.62,206.63-83.09l18.39,4.92'/%3e%3cpath%20class='cls-1'%20d='M468.41,152.45c-2.9-3.21-5.8-6.31-8.69-9.29l8.37,13.39c15.9,25.45,26.48,53.97,30.11,83.75,4.7,38.53-2,76.91-42.7,108.92-60.3,47.43-12.5,82.36-12.5,82.36,65.08,33.46,84.19-64.71,84.19-64.71,26.76-91.85-15.02-165.91-58.78-214.42'/%3e%3cg%3e%3crect%20class='cls-1'%20x='460.71'%20y='202.11'%20width='13.23'%20height='42.81'%20rx='2.9'%20ry='2.9'%20transform='translate(690.84%20-243.81)%20rotate(90)'/%3e%3crect%20class='cls-1'%20x='189.1'%20y='202.29'%20width='13.58'%20height='43.01'%20rx='2.9'%20ry='2.9'%20transform='translate(419.69%2027.9)%20rotate(90)'/%3e%3c/g%3e%3cg%3e%3crect%20class='cls-1'%20x='299.44'%20y='92.28'%20width='13.23'%20height='42.81'%20rx='2.9'%20ry='2.9'%20transform='translate(-18.03%2074.15)%20rotate(-13.42)'/%3e%3crect%20class='cls-1'%20x='362.54'%20y='337.02'%20width='13.58'%20height='43.01'%20rx='2.9'%20ry='2.9'%20transform='translate(-73.13%2095.52)%20rotate(-13.42)'/%3e%3c/g%3e%3cpath%20class='cls-1'%20d='M391.81,180.39c-3.7-3.45-9.5-3.26-12.95,.44l-49.98,53.53-27.84-26c-3.7-3.45-9.5-3.26-12.95,.44-3.45,3.7-3.26,9.5,.44,12.95l27.84,26-6.06,6.49c-3.45,3.7-3.26,9.5,.44,12.95h0c3.7,3.45,9.5,3.26,12.95-.44l6.06-6.49,7.23,6.75c3.7,3.45,9.5,3.26,12.95-.44h0c3.45-3.7,3.26-9.5-.44-12.95l-7.23-6.75,49.98-53.53c3.45-3.7,3.26-9.5-.44-12.95Z'/%3e%3c/g%3e%3c/svg%3e" }}
-                                 alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                 alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src={{ "data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='_图层_1'%20data-name='图层%201'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='0%200%20566.93%20566.93'%3e%3cdefs%3e%3cstyle%3e%20.cls-1%20{%20fill:%20%23fff;%20}%20.cls-2%20{%20fill:%20url(%23_未命名的渐变_3);%20}%20%3c/style%3e%3clinearGradient%20id='_未命名的渐变_3'%20data-name='未命名的渐变%203'%20x1='0'%20y1='283.46'%20x2='566.93'%20y2='283.46'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='0'%20stop-color='%23ff8c25'/%3e%3cstop%20offset='1'%20stop-color='%23ff4513'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect%20class='cls-2'%20x='0'%20y='0'%20width='566.93'%20height='566.93'%20rx='48.24'%20ry='48.24'/%3e%3cg%3e%3cpath%20class='cls-1'%20d='M377.06,82.65c-22.23-11.09-45.85-19.46-70.34-24.79-78.94-17.19-139.36,1.76-181.72,27.44C67.1,120.39,31.58,183.49,31.32,251.19c0,.34,0,.68,0,1.02,0,145.15,119.15,262.83,266.14,262.83,0,0,111.35,14.34,81.94-93.02,0,0-6.51-34.56-81.94-45.59-75.42-11.03-157.05-131.62-131.31-208.1,0,0,27.21-131.62,206.63-83.09l18.39,4.92'/%3e%3cpath%20class='cls-1'%20d='M468.41,152.45c-2.9-3.21-5.8-6.31-8.69-9.29l8.37,13.39c15.9,25.45,26.48,53.97,30.11,83.75,4.7,38.53-2,76.91-42.7,108.92-60.3,47.43-12.5,82.36-12.5,82.36,65.08,33.46,84.19-64.71,84.19-64.71,26.76-91.85-15.02-165.91-58.78-214.42'/%3e%3cg%3e%3crect%20class='cls-1'%20x='460.71'%20y='202.11'%20width='13.23'%20height='42.81'%20rx='2.9'%20ry='2.9'%20transform='translate(690.84%20-243.81)%20rotate(90)'/%3e%3crect%20class='cls-1'%20x='189.1'%20y='202.29'%20width='13.58'%20height='43.01'%20rx='2.9'%20ry='2.9'%20transform='translate(419.69%2027.9)%20rotate(90)'/%3e%3c/g%3e%3cg%3e%3crect%20class='cls-1'%20x='299.44'%20y='92.28'%20width='13.23'%20height='42.81'%20rx='2.9'%20ry='2.9'%20transform='translate(-18.03%2074.15)%20rotate(-13.42)'/%3e%3crect%20class='cls-1'%20x='362.54'%20y='337.02'%20width='13.58'%20height='43.01'%20rx='2.9'%20ry='2.9'%20transform='translate(-73.13%2095.52)%20rotate(-13.42)'/%3e%3c/g%3e%3cpath%20class='cls-1'%20d='M391.81,180.39c-3.7-3.45-9.5-3.26-12.95,.44l-49.98,53.53-27.84-26c-3.7-3.45-9.5-3.26-12.95,.44-3.45,3.7-3.26,9.5,.44,12.95l27.84,26-6.06,6.49c-3.45,3.7-3.26,9.5,.44,12.95h0c3.7,3.45,9.5,3.26,12.95-.44l6.06-6.49,7.23,6.75c3.7,3.45,9.5,3.26,12.95-.44h0c3.45-3.7,3.26-9.5-.44-12.95l-7.23-6.75,49.98-53.53c3.45-3.7,3.26-9.5-.44-12.95Z'/%3e%3c/g%3e%3c/svg%3e" }}
-                                 alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src={{ "data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='_图层_1'%20data-name='图层%201'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='0%200%20566.93%20566.93'%3e%3cdefs%3e%3cstyle%3e%20.cls-1%20{%20fill:%20%23fff;%20}%20.cls-2%20{%20fill:%20url(%23_未命名的渐变_3);%20}%20%3c/style%3e%3clinearGradient%20id='_未命名的渐变_3'%20data-name='未命名的渐变%203'%20x1='0'%20y1='283.46'%20x2='566.93'%20y2='283.46'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='0'%20stop-color='%23ff8c25'/%3e%3cstop%20offset='1'%20stop-color='%23ff4513'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect%20class='cls-2'%20x='0'%20y='0'%20width='566.93'%20height='566.93'%20rx='48.24'%20ry='48.24'/%3e%3cg%3e%3cpath%20class='cls-1'%20d='M377.06,82.65c-22.23-11.09-45.85-19.46-70.34-24.79-78.94-17.19-139.36,1.76-181.72,27.44C67.1,120.39,31.58,183.49,31.32,251.19c0,.34,0,.68,0,1.02,0,145.15,119.15,262.83,266.14,262.83,0,0,111.35,14.34,81.94-93.02,0,0-6.51-34.56-81.94-45.59-75.42-11.03-157.05-131.62-131.31-208.1,0,0,27.21-131.62,206.63-83.09l18.39,4.92'/%3e%3cpath%20class='cls-1'%20d='M468.41,152.45c-2.9-3.21-5.8-6.31-8.69-9.29l8.37,13.39c15.9,25.45,26.48,53.97,30.11,83.75,4.7,38.53-2,76.91-42.7,108.92-60.3,47.43-12.5,82.36-12.5,82.36,65.08,33.46,84.19-64.71,84.19-64.71,26.76-91.85-15.02-165.91-58.78-214.42'/%3e%3cg%3e%3crect%20class='cls-1'%20x='460.71'%20y='202.11'%20width='13.23'%20height='42.81'%20rx='2.9'%20ry='2.9'%20transform='translate(690.84%20-243.81)%20rotate(90)'/%3e%3crect%20class='cls-1'%20x='189.1'%20y='202.29'%20width='13.58'%20height='43.01'%20rx='2.9'%20ry='2.9'%20transform='translate(419.69%2027.9)%20rotate(90)'/%3e%3c/g%3e%3cg%3e%3crect%20class='cls-1'%20x='299.44'%20y='92.28'%20width='13.23'%20height='42.81'%20rx='2.9'%20ry='2.9'%20transform='translate(-18.03%2074.15)%20rotate(-13.42)'/%3e%3crect%20class='cls-1'%20x='362.54'%20y='337.02'%20width='13.58'%20height='43.01'%20rx='2.9'%20ry='2.9'%20transform='translate(-73.13%2095.52)%20rotate(-13.42)'/%3e%3c/g%3e%3cpath%20class='cls-1'%20d='M391.81,180.39c-3.7-3.45-9.5-3.26-12.95,.44l-49.98,53.53-27.84-26c-3.7-3.45-9.5-3.26-12.95,.44-3.45,3.7-3.26,9.5,.44,12.95l27.84,26-6.06,6.49c-3.45,3.7-3.26,9.5,.44,12.95h0c3.7,3.45,9.5,3.26,12.95-.44l6.06-6.49,7.23,6.75c3.7,3.45,9.5,3.26,12.95-.44h0c3.45-3.7,3.26-9.5-.44-12.95l-7.23-6.75,49.98-53.53c3.45-3.7,3.26-9.5-.44-12.95Z'/%3e%3c/g%3e%3c/svg%3e" }}
-                                 alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src={{ "data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='_图层_1'%20data-name='图层%201'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='0%200%20566.93%20566.93'%3e%3cdefs%3e%3cstyle%3e%20.cls-1%20{%20fill:%20%23fff;%20}%20.cls-2%20{%20fill:%20url(%23_未命名的渐变_3);%20}%20%3c/style%3e%3clinearGradient%20id='_未命名的渐变_3'%20data-name='未命名的渐变%203'%20x1='0'%20y1='283.46'%20x2='566.93'%20y2='283.46'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='0'%20stop-color='%23ff8c25'/%3e%3cstop%20offset='1'%20stop-color='%23ff4513'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect%20class='cls-2'%20x='0'%20y='0'%20width='566.93'%20height='566.93'%20rx='48.24'%20ry='48.24'/%3e%3cg%3e%3cpath%20class='cls-1'%20d='M377.06,82.65c-22.23-11.09-45.85-19.46-70.34-24.79-78.94-17.19-139.36,1.76-181.72,27.44C67.1,120.39,31.58,183.49,31.32,251.19c0,.34,0,.68,0,1.02,0,145.15,119.15,262.83,266.14,262.83,0,0,111.35,14.34,81.94-93.02,0,0-6.51-34.56-81.94-45.59-75.42-11.03-157.05-131.62-131.31-208.1,0,0,27.21-131.62,206.63-83.09l18.39,4.92'/%3e%3cpath%20class='cls-1'%20d='M468.41,152.45c-2.9-3.21-5.8-6.31-8.69-9.29l8.37,13.39c15.9,25.45,26.48,53.97,30.11,83.75,4.7,38.53-2,76.91-42.7,108.92-60.3,47.43-12.5,82.36-12.5,82.36,65.08,33.46,84.19-64.71,84.19-64.71,26.76-91.85-15.02-165.91-58.78-214.42'/%3e%3cg%3e%3crect%20class='cls-1'%20x='460.71'%20y='202.11'%20width='13.23'%20height='42.81'%20rx='2.9'%20ry='2.9'%20transform='translate(690.84%20-243.81)%20rotate(90)'/%3e%3crect%20class='cls-1'%20x='189.1'%20y='202.29'%20width='13.58'%20height='43.01'%20rx='2.9'%20ry='2.9'%20transform='translate(419.69%2027.9)%20rotate(90)'/%3e%3c/g%3e%3cg%3e%3crect%20class='cls-1'%20x='299.44'%20y='92.28'%20width='13.23'%20height='42.81'%20rx='2.9'%20ry='2.9'%20transform='translate(-18.03%2074.15)%20rotate(-13.42)'/%3e%3crect%20class='cls-1'%20x='362.54'%20y='337.02'%20width='13.58'%20height='43.01'%20rx='2.9'%20ry='2.9'%20transform='translate(-73.13%2095.52)%20rotate(-13.42)'/%3e%3c/g%3e%3cpath%20class='cls-1'%20d='M391.81,180.39c-3.7-3.45-9.5-3.26-12.95,.44l-49.98,53.53-27.84-26c-3.7-3.45-9.5-3.26-12.95,.44-3.45,3.7-3.26,9.5,.44,12.95l27.84,26-6.06,6.49c-3.45,3.7-3.26,9.5,.44,12.95h0c3.7,3.45,9.5,3.26,12.95-.44l6.06-6.49,7.23,6.75c3.7,3.45,9.5,3.26,12.95-.44h0c3.45-3.7,3.26-9.5-.44-12.95l-7.23-6.75,49.98-53.53c3.45-3.7,3.26-9.5-.44-12.95Z'/%3e%3c/g%3e%3c/svg%3e" }}
-                                 alt="">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        {# 我的桌面 #}
+        {% include 'desktop.twig' %}
         <div class="floating-toolbar">
-            <div class="toggle"></div>
+            <div class="github-gif">
+                <a href="https://github.com/ponycool/navigation/issues" target="_blank">
+                    <svg width="50.000000" height="50.000000" viewBox="0 0 50 50" fill="none"
+                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path d="M18.56 42.73C10.19 44.55 8.47 39.2 8.47 39.2C7.1 35.74 5.13 34.83 5.13 34.83C2.36 32.98 5.34 33.01 5.34 33.01C8.33 33.26 9.95 36.12 9.95 36.12C12.65 40.63 16.87 39.44 18.66 38.57L18.56 42.73Z"
+                              fill="#3D58FF" fill-opacity="1.000000" fill-rule="nonzero" class="octo-arm"
+                              style="transform-origin: 20px 40px"/>
+                        <path d="M17.08 47.99C17.08 48.06 18.95 47.22 18.95 46.45L18.98 36.77C19.27 34.81 20.05 33.48 20.95 32.75C14.15 31.98 7.03 29.43 7 18C7.03 14.74 8.21 12.05 10.18 9.99C9.82 9.22 8.78 6.18 10.47 2.09C10.47 2.09 13.01 1.29 18.87 5.13C21.27 4.47 23.88 4.15 26.5 4.12C29.07 4.12 31.72 4.47 34.15 5.17C39.98 1.29 42.56 2.06 42.56 2.06C44.21 6.18 43.17 9.22 42.85 9.96C44.81 12.09 46 14.71 46 18C46 29.46 38.84 31.98 32.04 32.75C33.11 33.66 34.12 35.47 34.12 38.27L34.08 46.41C34.08 47.25 36.23 48.09 36.26 47.99L17.08 47.99Z"
+                              fill="#3D58FF" fill-opacity="1.000000" fill-rule="nonzero" class="octo-body">
+                            <style>
+                                @keyframes octocat {
+                                    0%,
+                                    100% {
+                                        transform: rotate(0);
+                                    }
+
+                                    20%,
+                                    60% {
+                                        transform: rotate(-25deg);
+                                    }
+
+                                    40%,
+                                    80% {
+                                        transform: rotate(100deg);
+                                    }
+                                }
+
+                                .octo-arm {
+                                    animation: octocat 1.1s linear infinite;
+                                }
+                            </style>
+                        </path>
+                    </svg>
+                </a>
+            </div>
             <div class="top">
                 <img src="data:image/svg+xml,%3csvg%20width='50.000000'%20height='50.000000'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdesc%3e%20Created%20with%20Pixso.%20%3c/desc%3e%3cdefs%3e%3cclipPath%20id='clip14_7'%3e%3crect%20id='top'%20width='50.000000'%20height='50.000000'%20fill='white'%20fill-opacity='0'/%3e%3c/clipPath%3e%3c/defs%3e%3cg%20clip-path='url(%23clip14_7)'%3e%3crect%20id='矩形%2010'%20x='27.000000'%20y='47.000000'%20rx='2.750000'%20width='5.500000'%20height='38.000000'%20transform='rotate(180%2027.000000%2047.000000)'%20fill='%233D58FF'%20fill-opacity='1.000000'/%3e%3crect%20id='矩形%2013'%20x='5.774933'%20y='27.955688'%20rx='2.750000'%20width='5.500000'%20height='30.532181'%20transform='rotate(-133.342%205.774933%2027.955688)'%20fill='%233D58FF'%20fill-opacity='1.000000'/%3e%3crect%20id='矩形%2014'%20rx='2.750000'%20width='5.500000'%20height='30.532181'%20transform='matrix(0.68635%20-0.727271%20-0.727271%20-0.68635%2044.3194%2027.9557)'%20fill='%233D58FF'%20fill-opacity='1.000000'/%3e%3crect%20id='矩形%2012'%20x='46.750000'%20y='3.000000'%20rx='2.750000'%20width='5.500000'%20height='44.000000'%20transform='rotate(90%2046.750000%203.000000)'%20fill='%233D58FF'%20fill-opacity='1.000000'/%3e%3c/g%3e%3c/svg%3e"
-                     alt="">
+                     alt=""/>
             </div>
         </div>
         <div class="add-pop-up">
@@ -400,6 +331,7 @@
                 </div>
             </div>
         </div>
+        <div class="toast"></div>
     </div>
 {% endblock %}
 
