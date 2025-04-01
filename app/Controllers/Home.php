@@ -43,6 +43,7 @@ class Home extends Web
         // 收录数量
         $websiteCount = $websiteSvc->getEnableTotal();
         $data = [
+            'cid' => $cid,
             'carousel' => $carousel,
             'categories' => $categories,
             'websiteCategories' => $websiteCategories,
