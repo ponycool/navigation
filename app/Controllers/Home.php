@@ -14,16 +14,19 @@ class Home extends Web
      */
     public function index(): void
     {
+        $mode = 'default';
         $cid = $this->request->getGet('cid');
         if (!is_null($cid)) {
             $cid = intval($cid);
         }
         $queryStr = $this->request->getGet('q');
         if (!is_null($queryStr)) {
+            $mode = 'query';
             $queryStr = urldecode($queryStr);
         }
         $url = $this->request->getGet('url');
         if (!is_null($url)) {
+            $mode = 'query';
             $url = urldecode($url);
         }
         $settings = self::getSettings();
@@ -65,6 +68,7 @@ class Home extends Web
         // 收录数量
         $websiteCount = $websiteSvc->getEnableTotal();
         $data = [
+            'mode' => $mode,
             'cid' => $cid,
             'queryStr' => $queryStr,
             'carousel' => $carousel,
