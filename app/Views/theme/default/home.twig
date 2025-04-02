@@ -17,6 +17,7 @@
     {{ parent() }}
     <script type="module" crossorigin src="{{ "/js/index.js?v=#{version}" }}"></script>
     <script src="{{ "/js/search.js?v=#{version}" }}" type="text/javascript"></script>
+    <script src="{{ "/js/share.js?v=#{version}" }}" type="text/javascript"></script>
 {% endblock %}
 
 {# 主体 #}
@@ -35,97 +36,8 @@
                 {% include 'widget.twig' %}
                 {# 搜索 #}
                 {% include 'search.twig' %}
-                <div class="hot-nav">
-                    <h1>收录热门导航</h1>
-                    <ul>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAL4AAABnCAYAAAC+Rfh6AAAABHNCSVQICAgIfAhkiAAAAptJREFUeJzt3MFtVTEURdEfSkrEmF8M1AFUwSDFJEyRSEthygSRn2f73Pu8VgVP0dGW7US5+3h5fb3wT7/8dE7pQ/oDqnv8lv4CZjD8/3j8bvxndOeo8zaOPOei+G+k+uei+DdQ/fNQ/Buo/nkY/g1cdM/D8NmS4d9I9c/B5fadXHR7U/x3Uv3eFP8A1e9L8Q9Q/b4U/yDV70nxD1L9ngz/IM+bPTnqDOLI04viD6L6vSj+QKrfh+IPpPp9KP5gqt+D4g+m+j0Y/mCeN3swfLZk+BOofn0utxO56Nal+BOpfl2KP5nq16T4k6l+TYq/gOrXo/gLqH49hr+A5816DJ8tGf4iql+Ly+1iLro1KP5iql+D4geofp7iB6h+nuKHqH6W4oeofpbhh3jezDJ8tuSMH+asn6H4YY47GYpfgOqvp/gFqP56hs+WDL+Al5/pL9iPM34RzvlrKX4Rv5/TX7AXwy/i5Tn9BXsxfLZk+GzJ8NmS4Rdxf01/wV4Mny0ZPlsyfLbkN7dF+M3tWopfwMM1/QX7MfwCPn9Nf8F+HHUKcMxZT/HDHHMyDD/MMSfDUSfMMSdD8YMcc3IMP8gxJ8fwQx6uip9k+CFqn2X4AWqfZ/gBap/nOTPAE2ae4i/miFOD4S/mmFOD4S/kUluH4S+k9nUY/iJqX4vhL3L/Kf0F/M1z5iKeMGtR/AUcceox/AVcausx/Mlcamsy/MnUviaX28lcamtS/Im+qH1Zhj+Rf/1dl+FP4lJbm+FP4lJbm+FPoPb1Gf4Eal+f58wJPGHWp/iDOeL0YPiDOeb0YPgDudT2YfgDqX0fhj+I2vdi+IOofS+eMwfxhNmL4g/grzD7UfyDHq6Xy4+n9FdwK8U/yNm+J8M/wEtOX38AlROzxGBoJ0EAAAAASUVORK5CYII="
-                                         alt="" class="desktop-bg"/>
-                                    <img src="data:image/svg+xml,%3csvg%20width='14.000000'%20height='14.000000'%20viewBox='0%200%2014%2014'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdesc%3e%20Created%20with%20Pixso.%20%3c/desc%3e%3cdefs/%3e%3crect%20id='ico'%20width='14.000000'%20height='14.000000'%20fill='%23FFFFFF'%20fill-opacity='0'/%3e%3cpath%20id='矢量%201'%20d='M2%208.2C1.72%208.04%201.65%207.64%201.84%207.31C1.93%207.14%202.06%207.03%202.21%206.97L2.21%206.96L7.78%203.42L7.78%203.42C7.78%203.42%208.09%203.25%208.25%203.36C8.42%203.47%208.59%203.69%208.46%204.36C8.46%204.36%208.46%204.39%208.45%204.4C8.29%205.09%208.52%205.76%209.08%206.07C9.63%206.38%2010.31%206.23%2010.82%205.72C10.83%205.72%2010.84%205.7%2010.85%205.7C11.35%205.24%2011.63%205.27%2011.81%205.35C11.99%205.44%2012%205.79%2012%205.79L12%205.79L11.92%2012.42L11.92%2012.42C11.94%2012.57%2011.91%2012.75%2011.82%2012.91C11.63%2013.25%2011.26%2013.4%2010.98%2013.24C10.86%2013.17%2010.78%2013.06%2010.74%2012.92L10.74%2012.93C10.09%2011.11%209.31%209.64%207.63%208.7L7.61%208.69C5.93%207.74%204.27%207.84%202.39%208.24L2.39%208.24C2.26%208.27%202.12%208.27%202%208.2Z'%20fill='%23FFFFFF'%20fill-opacity='1.000000'%20fill-rule='nonzero'/%3e%3cpath%20id='矢量%202'%20d='M11.65%203.57L9.73%202.48C9.46%202.34%209.47%201.95%209.74%201.79L10.73%201.2L11.72%200.62C11.99%200.45%2012.32%200.64%2012.31%200.95L12.29%202.08L12.26%203.2C12.25%203.52%2011.91%203.72%2011.65%203.57Z'%20fill='%233DF8FF'%20fill-opacity='1.000000'%20fill-rule='nonzero'/%3e%3c/svg%3e"
-                                         alt="" class="logo"/>
-                                    <div>
-                                        <p>我的桌面</p>
-                                        <span>My Desktop</span>
-                                    </div>
-                                </div>
-                                <img src="data:image/png;base64,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"
-                                     alt="" class="desktop-ai"/>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt=""/>
-                                    <h6>我的主页</h6>
-                                </div>
-                                <p>关于我的主页的简短描述介绍</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt=""/>
-                                    <h6>我的主页</h6>
-                                </div>
-                                <p>关于我的主页的简短描述介绍</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt=""/>
-                                    <h6>我的主页</h6>
-                                </div>
-                                <p>关于我的主页的简短描述介绍</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt=""/>
-                                    <h6>我的主页</h6>
-                                </div>
-                                <p>关于我的主页的简短描述介绍</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt=""/>
-                                    <h6>我的主页</h6>
-                                </div>
-                                <p>关于我的主页的简短描述介绍</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt=""/>
-                                    <h6>我的主页</h6>
-                                </div>
-                                <p>关于我的主页的简短描述介绍</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAf9JREFUaIHtmF+SgjAMxr84+6B3Ai236G0Wb8MtQPBO+GT2AZhl1xboHyDO+D1qE/qbJE1a4CNZor03sETnlnMmXIhxq0+Um9aIBklaVkQox781RzLu+WubLbmpB/gGoJbaiANJH1zCAWCQGJC+Dr597Q8xNxMiJlxC7MWAEOMWYi8GpD5RTozrzLLK9ocYEKCDaY5EC4BeJApkkA0oNP2i6aw5TzVzqrmcXz2yazlPH1wmLSvbmk06+1lzzvh7tDKQ3QuqYn1j9dQyQayh1RriAMBrfeCfVonIVlEYK2qNuAA0hXmK9VUUZz3ABQ7DXuxiD64R3zQ6dNDV1JpEs6LOtyLgWhfmSxUQEJEYdTAVFYP/qikos/nyKvZYxUxAmejXJufj3ym11jhSCShTzcBvmikf/4tBNjhSVYjxLMjWjc1XkzWyR2PzlRXknSCACZC+wb2NrDVCwI3NBVgRzBecEbzJblVNNsREszoA6glUruPEYOs6ukxosiFucrEajxoBbuJ3dlfdC6qagjIGrBsJ1aaPDz0QYWZY9NEuryhNQRnB/clnSrs9B9UF5TFhdn3Xigmz+wNdLJjdQYA4MCJAYkgMSGhUxIAAHYyvrSgQAPCNijgQW1RsE/cgcSCAX1REgvhIJIgpvZ4zg6ZIEOAlvZwvdqKUaFaml8iP3kE/R9rLZe1XiTwAAAAASUVORK5CYII="
-                                         alt=""/>
-                                    <h6>我的主页</h6>
-                                </div>
-                                <p>关于我的主页的简短描述介绍</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                {# 快捷导航 #}
+                {% include 'quick.twig' %}
                 {# 站点列表 #}
                 {% include 'website.twig' %}
                 {% include 'footer.twig' %}
@@ -257,6 +169,9 @@
                         return;
                     case 'Bing':
                         searchSource = 'bing';
+                        return;
+                    case 'Yandex':
+                        searchSource = 'yandex';
                         return;
                     default:
                         searchSource = 'website';

@@ -10,14 +10,17 @@ function search(keyword) {
             return;
         case 'bing':
             bingSearch(keyword);
+            return;
+        case 'yandex':
+            yandexSearch(keyword);
+            return;
         default:
             websiteSearch(keyword);
     }
 }
 
 function websiteSearch(keyword) {
-    const url = `https://www.baidu.com/s?wd=${encodeURIComponent(keyword)}`;
-    window.open(url);
+    window.location.href = `/?q=${encodeURIComponent(keyword)}`
 }
 
 function baiduSearch(keyword) {
@@ -32,5 +35,10 @@ function googleSearch(keyword) {
 
 function bingSearch(keyword) {
     const url = `https://www.bing.com/search?q=${encodeURIComponent(keyword)}`;
+    window.open(url);
+}
+
+function yandexSearch(keyword) {
+    const url = `https://yandex.com/search/?text=${encodeURIComponent(keyword)}`;
     window.open(url);
 }
