@@ -285,15 +285,27 @@ class WebsiteService extends BaseService
     public function getListByCond(array $params): array
     {
         $cidList = $params['cidList'] ?? null;
-        if (empty($cidList)) {
+        $queryStr = $params['queryStr'] ?? null;
+        $url = $params['url'] ?? null;
+        if (empty($cidList) && empty($queryStr) && empty($url)) {
             return [];
         }
-
-        $cond = [
-            'cid' => $cidList,
-            'status' => 1
-        ];
-        return $this->getByCond($cond);
+        $db = $this->getDb();
+        $table = $this->getTable();
+        $builder = $db->table($table);
+        $builder->select($this->getSelectFields());
+        $builder->where('deleted_at')
+            ->where('deleted', DeletedStatus::UNDELETED->value);
+        if (!empty($url)) {
+            $builder->where('url', $url);
+        } elseif (!empty($queryStr)) {
+            $builder->like('website_name', $queryStr);
+        } else if (!empty($cidList)) {
+            $builder->whereIn('cid', $cidList);
+        }
+        $builder->orderBy('created_at', 'DESC');
+        $query = $builder->get();
+        return $query->getResultArray();
     }
 
     /**

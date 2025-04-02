@@ -24,6 +24,10 @@
                     </div>
                     {# 子分类 #}
                     {% set subNavs = categories|filter(item=>item.pid==nav.id and item.level==2) %}
+                    {% if cid is empty %}
+                        {% set activeNav= subNavs | first %}
+                        {% set cid=activeNav.id %}
+                    {% endif %}
                     {% if subNavs %}
                         <div class="secondary-menu">
                             {% for subNav in subNavs %}
