@@ -42,3 +42,44 @@ function yandexSearch(keyword) {
     const url = `https://yandex.com/search/?text=${encodeURIComponent(keyword)}`;
     window.open(url);
 }
+
+$(function () {
+    $('.select-list li').on('click', function () {
+        const value = $(this).text();
+        switch (value) {
+            case '百度':
+                searchSource = 'baidu';
+                return;
+            case '谷歌':
+                searchSource = 'google';
+                return;
+            case 'Bing':
+                searchSource = 'bing';
+                return;
+            case 'Yandex':
+                searchSource = 'yandex';
+                return;
+            default:
+                searchSource = 'website';
+                return;
+        }
+    });
+    // 搜索
+    $('.search-btn').on('click', function () {
+        const searchVal = $('.search-input').val();
+        if (searchVal === '') {
+            return false;
+        }
+        search(searchVal);
+    });
+    // 回车事件
+    $('.search-input').on('keydown', function (e) {
+        if (e.keyCode === 13) {
+            const searchVal = $('.search-input').val();
+            if (searchVal === '') {
+                return false;
+            }
+            search(searchVal);
+        }
+    });
+});
