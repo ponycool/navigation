@@ -4,9 +4,13 @@
         <div class="swiper-wrapper">
             {% for item in carousel %}
                 <div class="swiper-slide">
-                    <a href="">
+                    {% if item.link %}
+                        <a href="{{ item.link }}" target="_blank">
+                            <img src="{{ item.image }}" alt="{{ item.title }}">
+                        </a>
+                    {% else %}
                         <img src="{{ item.image }}" alt="{{ item.title }}">
-                    </a>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>
