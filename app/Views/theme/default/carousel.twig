@@ -4,7 +4,9 @@
         <div class="swiper-wrapper">
             {% for item in carousel %}
                 <div class="swiper-slide">
-                    <img src="{{ item.image }}" alt="{{ item.title }}">
+                    <a href="">
+                        <img src="{{ item.image }}" alt="{{ item.title }}">
+                    </a>
                 </div>
             {% endfor %}
         </div>

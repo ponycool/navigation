@@ -1,3 +1,15 @@
+<script>
+    /**
+     * 显示消息提示
+     * @param msg
+     */
+    function message(msg) {
+        $(".toast").show().text(msg);
+        setTimeout(function () {
+            $(".toast").hide()
+        }, 1500);
+    }
+</script>
 {# 统计脚本 #}
 {% if settings.statistical_script %}
     {{ settings.statistical_script | raw }}
