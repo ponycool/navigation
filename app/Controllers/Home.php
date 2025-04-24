@@ -80,8 +80,8 @@ class Home extends Web
         $this->setTitle($title)
             ->setDescription($description)
             ->setKeywords($keywords)
-            ->setTemplate('home')
-            ->setPage('home')
+            ->setTemplate('index')
+            ->setPage('index')
             ->render($data);
     }
 }
