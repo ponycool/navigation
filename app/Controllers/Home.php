@@ -77,11 +77,12 @@ class Home extends Web
             'website' => $website,
             'websiteCount' => $websiteCount,
         ];
+        $template = $this->isMobile() ? 'mobile' : 'index';
         $this->setTitle($title)
             ->setDescription($description)
             ->setKeywords($keywords)
-            ->setTemplate('home')
-            ->setPage('home')
+            ->setTemplate($template)
+            ->setPage('index')
             ->render($data);
     }
 }

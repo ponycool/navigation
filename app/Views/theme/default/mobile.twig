@@ -1,0 +1,36 @@
+{% extends 'base.twig' %}
+
+{# CSS #}
+{% block css %}
+    {{ parent() }}
+    <link rel="stylesheet" crossorigin href="{{ "/css/mobile.css?v=#{version}" }}">
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="module" crossorigin src="{{ "/js/mobile.js?v=#{version}" }}"></script>
+    <link rel="modulepreload" crossorigin href="{{ "/js/common.js?v=#{version}" }}">
+    <script src="{{ "/js/share.js?v=#{version}" }}" type="text/javascript"></script>
+{% endblock %}
+
+{# 主体 #}
+{% block content %}
+    <div class="mobile">
+        {% include 'mobile_header.twig' %}
+        <div class="content-wrapper">
+            <div class="search-wrapper">
+                <input type="text" placeholder="搜索内容" class="search-input"/>
+                <img src="data:image/svg+xml,%3csvg%20width='50.000000'%20height='50.000000'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdesc%3e%20Created%20with%20Pixso.%20%3c/desc%3e%3cdefs%3e%3cclipPath%20id='clip79_14'%3e%3crect%20id='mobile-close'%20width='50.000000'%20height='50.000000'%20fill='white'%20fill-opacity='0'/%3e%3c/clipPath%3e%3c/defs%3e%3cg%20clip-path='url(%23clip79_14)'%3e%3crect%20id='矩形%2035'%20x='10.152588'%20y='7.429565'%20rx='1.500000'%20width='45.773621'%20height='3.000000'%20transform='rotate(45.8511%2010.152588%207.429565)'%20fill='%23646464'%20fill-opacity='1.000000'/%3e%3crect%20id='矩形%2035'%20rx='1.500000'%20width='45.773621'%20height='3.000000'%20transform='matrix(-0.696526%200.717532%200.717532%200.696526%2039.8825%207.42957)'%20fill='%23646464'%20fill-opacity='1.000000'/%3e%3c/g%3e%3c/svg%3e"
+                     alt=""/>
+            </div>
+            {% include 'mobile_website.twig' %}
+        </div>
+        {% include 'mobile_footer.twig' %}
+        <div class="toast"></div>
+    </div>
+{% endblock %}
+
+{# JS脚本 #}
+{% block script %}
+    {{ parent() }}
+{% endblock %}
