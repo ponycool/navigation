@@ -12,6 +12,7 @@ namespace App\Entities;
 use CodeIgniter\Entity\Entity;
 use Exception;
 use Ramsey\Uuid\Uuid;
+use Symfony\Component\Uid\Ulid;
 
 class Base extends Entity
 {
@@ -27,9 +28,30 @@ class Base extends Entity
         try {
             $uuid = Uuid::uuid1()->toString();
         } catch (Exception $e) {
-            log_message('error', 'uuid 生成器异常，error：{error}', ['error' => $e->getMessage()]);
+            log_message('error', 'uuid 生成器异常，error：{error}',
+                ['error' => $e->getMessage()]
+            );
         }
         return $uuid;
+    }
+
+    /**
+     * 生成ULID
+     * @return string
+     * @throws Exception
+     */
+    public function generateUlid(): string
+    {
+        $ulid = '';
+        try {
+            $generator = new Ulid();
+            $ulid = $generator->toString();
+        } catch (Exception $e) {
+            log_message('error', 'ulid 生成器异常，error：{error}',
+                ['error' => $e->getMessage()]
+            );
+        }
+        return $ulid;
     }
 
     /**
@@ -57,7 +79,8 @@ class Base extends Entity
         return array_diff_key($properties, [
             'id' => '',
             'gid' => '',
-            'uuid' => ''
+            'uuid' => '',
+            'ulid' => '',
         ]);
     }
 
@@ -121,6 +144,7 @@ class Base extends Entity
                     case 'id':
                     case 'gid':
                     case 'uuid':
+                    case 'ulid':
                     case 'created_at':
                     case 'updated_at':
                     case 'deleted_at':
