@@ -2,7 +2,7 @@
 
 基于Codeigniter4和React简洁易用的网址导航
 
-[官网](https://ponycool.com/navigation/index)
+[官网](https://nav.ponycool.com)
 
 ## 预览
 
