@@ -1,12 +1,12 @@
 const defaultShortcuts = [
     {
         name: '酷码工具',
-        url: 'https://tools.ponycool.com',
+        url: 'https://ponycool.com/tools/index',
         icon: 'https://ponycool.com/img/tools/favicon.ico'
     },
     {
         name: '酷码CMS',
-        url: 'https://cms.ponycool.com',
+        url: 'https://ponycool.com/cms/index',
         icon: 'https://ponycool.com/img/cms/favicon.ico'
     },
     {
