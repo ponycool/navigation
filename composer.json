@@ -14,7 +14,7 @@
         "ext-iconv": "*",
       "ext-dom": "*",
       "ext-libxml": "*",
-        "symfony/uid": "^7.2"
+        "symfony/uid": "^7.3"
     },
     "license": "GPL-3.0",
     "autoload": {
