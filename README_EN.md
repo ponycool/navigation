@@ -3,11 +3,11 @@
     <img src="https://cdn.static.ponycool.com/img/navigation/favicon/favicon.svg" width="130" />
   </a>
   <br />
-  <b>酷码导航</b>
-  <p align="center">简洁易用的网址导航</p>
-  <p align="center">借助成熟的 Codeigniter4 与 React 技术栈，结合后端框架的高效数据处理能力与前端框架的出色交互体验，确保系统稳定运行。</p>
+  <b>Cool Code Navigation</b>
+  <p align="center">A simple and easy-to-use website navigation</p>
+  <p align="center">Leveraging the mature Codeigniter4 and React technology stacks, combining the efficient data processing capabilities of the backend framework with the excellent interactive experience of the frontend framework, ensures the stable operation of the system.</p>
   <p align="center">
-    <a href="README_EN.md"><img alt="english" src="https://img.shields.io/static/v1.svg?label=&message=English&style=flat-square&color=ff5000"></a>
+    <a href="README.md"><img alt="中文" src="https://img.shields.io/static/v1.svg?label=&message=Chinese&style=flat-square&color=ff5000"></a>
     <img src="https://img.shields.io/github/v/release/ponycool/navigation" />
     <a href="https://github.com/ponycool/navigation/stargazers"><img src="https://img.shields.io/github/stars/ponycool/navigation" alt="Stars"/></a>
     <img alt="Codeigniter4" src="https://img.shields.io/static/v1.svg?label=&message=Codeigniter4&style=flat-square&color=C82B38">
@@ -16,79 +16,79 @@
   </p>
 </p>
 
-## 酷码导航
+## Cool Code Navigation
 
-基于Codeigniter4和React简洁易用的网址导航
+A simple and easy-to-use website navigation based on Codeigniter4 and React
 
-[官网](https://nav.ponycool.com)
+[Official Website](https://nav.ponycool.com)
 
-## 预览
+## Preview
 
-#### WEB端
+#### Web Version
 
-![WEB端](https://cdn.static.ponycool.com/img/navigation/screenshot/web.png)
+![Web Version](https://cdn.static.ponycool.com/img/navigation/screenshot/web.png)
 
-#### 管理后台
+#### Admin Dashboard
 
-![管理后台](https://cdn.static.ponycool.com/img/navigation/screenshot/admin_screenshot_compressed.png)
+![Admin Dashboard](https://cdn.static.ponycool.com/img/navigation/screenshot/admin_screenshot_compressed.png)
 
-## 安装
+## Installation
 
-### 系统要求
+### System Requirements
 
-我们推荐服务器运行PHP 8.2或更高版本；数据库软件默认SQLite3，也可采用MySQL 5.7或更高版本、MariaDB 10.3或更高版本。
-我们也推荐Apache或Nginx作为运行酷码导航的可靠选项，但您也可以选择其他HTTP服务器软件。
+We recommend running PHP 8.2 or higher on your server; the default database software is SQLite3, but you can also use MySQL 5.7 or higher, or MariaDB 10.3 or higher.
+We also recommend Apache or Nginx as reliable options for running Cool Code Navigation, but you can choose other HTTP server software.
 
-### 使用docker运行
+### Running with Docker
 
 ```shell
 sudo docker run -d --restart=unless-stopped -p 80:80 ponycool/navigation:latest
-# 国内源
+# Domestic source
 sudo docker run -d --restart=unless-stopped -p 80:80 registry.cn-qingdao.aliyuncs.com/ponycool/navigation:latest
 
-# 数据持久化，请使用具名挂载的方式进行挂载
+# Data persistence. Please use named volume mounting.
 docker run -d -p 80:80 -v navigation-data:/opt/navigation/writable/data --name navigation ponycool/navigation:latest
-# 国内源
+# Domestic source
 docker run -d -p 80:80 -v navigation-data:/opt/navigation/writable/data --name navigation registry.cn-qingdao.aliyuncs.com/ponycool/navigation:latest
 ```
 
-## 使用
+## Usage
 
-### 访问
+### Access
 
-安装成功后，通过浏览器访问酷码导航
+After successful installation, access Cool Code Navigation through your browser.
 
 ```
-# 前台
-地址: http://<服务器IP地址>:<服务运行端口>
-# 后台
-地址: http://<服务器IP地址>:<服务运行端口>/admin/
-用户名: admin
-密码: admin123!
+# Frontend
+Address: http://<Server IP Address>:<Service Port>
+# Backend
+Address: http://<Server IP Address>:<Service Port>/admin/
+Username: admin
+Password: admin123!
 ```
 
-### 配置
+### Configuration
 
-JWT密钥，必须为32位随机字符串，示例如下：
+The JWT secret key must be a 32-character random string. An example is as follows:
 
 jwt.secret = 0W************IZAa
 
-### 编译镜像
+### Build Image
 
 ```shell
-# 编译镜像
+# Build image
 make build
-# 编译指定版本镜像
+# Build a specific version of the image
 # make -e version=1.0.0 build
-# 手动本地编译镜像
+# Manually build the image locally
 # docker build -t ponycool/navigation:latest .
-# 查看已经安装PHP模块，容器内执行
+# Check installed PHP modules. Execute inside the container.
 # php -m
-# 镜像测试端口8080
+# Test the image on port 8080
 # docker run -it --rm -p 9000:8080 --name navigation ponycool/navigation:latest
 ```
 
-## 支持
+## Support
 
 [Website](https://ponycool.com/navigation/index)
 
@@ -96,7 +96,7 @@ make build
 
 Mail:pony@ponycool.com
 
-## 鸣谢
+## Acknowledgments
 
 [CodeIgniter4](https://github.com/codeigniter4/CodeIgniter4)
 
