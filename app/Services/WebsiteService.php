@@ -267,7 +267,7 @@ class WebsiteService extends BaseService
      */
     public function getDetailByUuid(string $uuid): ?array
     {
-        if ($this->validateUUID($uuid) !== true) {
+        if ($this->validateUuid($uuid) !== true) {
             return null;
         }
         $res = $this->getFirstByUuid($uuid);

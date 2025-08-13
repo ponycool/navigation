@@ -112,7 +112,7 @@ class RecordService extends BaseService
      */
     public function getDetailByUuid(string $uuid): ?array
     {
-        if ($this->validateUUID($uuid) !== true) {
+        if ($this->validateUuid($uuid) !== true) {
             return null;
         }
         return $this->getFirstByUuid($uuid);

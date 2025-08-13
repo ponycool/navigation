@@ -170,7 +170,7 @@ class CategoryService extends BaseService
      */
     public function getCategoryByUuid(string $uuid): ?array
     {
-        if ($this->validateUUID($uuid) !== true) {
+        if ($this->validateUuid($uuid) !== true) {
             return null;
         }
         $res = $this->getFirstByUuid($uuid);
