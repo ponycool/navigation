@@ -92,7 +92,7 @@ class TagService extends BaseService
     public function create(array $data): bool
     {
         $data = self::prepare($data);
-        $tagName = $data['tagName'];
+        $tagName = $data['tag_name'];
         $cond = [
             'tag_name' => $tagName
         ];
