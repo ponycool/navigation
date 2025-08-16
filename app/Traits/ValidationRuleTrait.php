@@ -11,7 +11,7 @@ namespace App\Traits;
 
 trait ValidationRuleTrait
 {
-    public function getBaseRules(): array
+    protected function getBaseRules(): array
     {
         return [
             'page' => [
@@ -50,7 +50,7 @@ trait ValidationRuleTrait
         ];
     }
 
-    public function getUuidRule(): array
+    protected function getUuidRule(): array
     {
         return [
             'uuid' => [
