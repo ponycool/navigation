@@ -93,6 +93,13 @@ class TagService extends BaseService
     {
         $data = self::prepare($data);
         $tagName = $data['tagName'];
+        $cond = [
+            'tag_name' => $tagName
+        ];
+        $record = $this->getFirstByCond($cond);
+        if ($record) {
+            throw new Exception('标签已存在');
+        }
         $tag = new Tag();
         $tag->fill($data)
             ->filterInvalidProperties();
