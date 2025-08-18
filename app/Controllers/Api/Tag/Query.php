@@ -19,9 +19,11 @@ class Query extends Base
     public function index(): void
     {
         $this->postFilter();
+        $this->validatePageParamsFromJsonInput();
         $svc = new TagService();
         try {
-            $list = $svc->getList();
+            $params = $this->getJsonInputParams();
+            $list = $svc->getList($params);
             $data = [
                 'code' => Code::OK,
                 'message' => '获取标签列表成功',

@@ -81,9 +81,29 @@ class TagService extends BaseService
         return $this->getFirstByUuid($uuid);
     }
 
-    public function getList(): array
+    public function getList(array $data): array
     {
-        return $this->get();
+        $data = self::prepare($data);
+        $page = $data['page'] ?? 1;
+        $pageSize = $data['page_size'] ?? 10;
+        $isPage = $data['is_page'] ?? true;
+        $limit = $data['limit'] ?? null;
+        $keyword = $data['keyword'] ?? null;
+        $sortField = $data['sort_field'] ?? null;
+        $sortOrder = $data['sort_order'] ?? 'DESC';
+        $cond = [];
+        if ($keyword) {
+            $keyword = '%' . $keyword . '%';
+            $where = sprintf("(tag_name like '%s' OR tag_name like '%s')", $keyword, $keyword);
+            $cond[] = $where;
+        }
+        if ($isPage) {
+            return $this->getPage($page, $pageSize, $cond, $sortField, $sortOrder);
+        }
+        if ($limit) {
+            $limit = min(intval($limit), 100);
+        }
+        return $this->getByCond($cond, $sortField, $sortOrder, $limit);
     }
 
     /**
