@@ -14,6 +14,9 @@ trait ValidationRuleTrait
     protected function getBaseRules(): array
     {
         return [
+            'uuid' => [
+                'rules' => 'if_exist|uuid',
+            ],
             'page' => [
                 'rules' => 'if_exist|page',
             ],
