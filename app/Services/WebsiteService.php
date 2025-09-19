@@ -295,7 +295,8 @@ class WebsiteService extends BaseService
         $builder = $db->table($table);
         $builder->select($this->getSelectFields());
         $builder->where('deleted_at')
-            ->where('deleted', DeletedStatus::UNDELETED->value);
+            ->where('deleted', DeletedStatus::UNDELETED->value)
+            ->where('status', 1);
         if (!empty($url)) {
             $builder->where('url', $url);
         } elseif (!empty($queryStr)) {
