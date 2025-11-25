@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Services\CarouselService;
 use App\Services\CategoryService;
 use App\Services\WebsiteService;
+use App\Services\TagService as TagSvc;
 
 class Home extends Web
 {
@@ -67,6 +68,9 @@ class Home extends Web
         }
         // 收录数量
         $websiteCount = $websiteSvc->getEnableTotal();
+        // 标签
+        $tagSvc = new TagSvc();
+        $tags = $tagSvc->get();
         $data = [
             'mode' => $mode,
             'cid' => $cid,
@@ -76,6 +80,7 @@ class Home extends Web
             'websiteCategories' => $websiteCategories,
             'website' => $website,
             'websiteCount' => $websiteCount,
+            'tags' => $tags,
         ];
         $template = $this->isMobile() ? 'mobile' : 'index';
         $this->setTitle($title)

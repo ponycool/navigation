@@ -602,36 +602,12 @@ class WebsiteService extends BaseService
                     $baseUrl .= ':' . $parsedUrl['port'];
                 }
 
-                // 处理相对路径的图标地址
-                if (!empty($icon)) {
-                    if (!empty($parsedUrl['path'])) {
-                        $path = rtrim(dirname($parsedUrl['path']), '/');
-                    } else {
-                        $path = '';
-                    }
-
-                    // 构建绝对路径
-                    if (!filter_var($icon, FILTER_VALIDATE_URL)) {
-                        if (str_starts_with($icon, '../')) {
-                            // 处理 ../ 路径
-                            $parts = array_merge(explode('/', $path), explode('/', $icon));
-                            $absPath = [];
-                            foreach ($parts as $part) {
-                                if ($part === '..') {
-                                    array_pop($absPath);
-                                } elseif ($part !== '' && $part !== '.') {
-                                    $absPath[] = $part;
-                                }
-                            }
-                            $icon = $baseUrl . '/' . implode('/', $absPath);
-                        } elseif (str_starts_with($icon, './')) {
-                            // 处理 ./ 路径
-                            $icon = $baseUrl . '/' . ltrim($icon, './');
-                        } else {
-                            // 处理相对路径
-                            $icon = $baseUrl . '/' . ltrim($icon, '/');
-                        }
-                    }
+                // 获取图标
+                $icon = '';
+                $websiteFaviconSvc = new WebsiteFaviconService();
+                $favicon = $websiteFaviconSvc->parseFavicon($url);
+                if ($favicon) {
+                    $icon = $favicon;
                 }
                 return [
                     'title' => $title,

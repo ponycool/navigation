@@ -13,6 +13,8 @@ enum SubmissionStatus: int
 {
     // 待审核
     case PENDING = 0;
+    // 已收录
     case APPROVED = 1;
+    // 审核拒绝
     case REJECTED = 2;
 }
