@@ -1,0 +1,66 @@
+<div class="add-pop-up">
+    <div class="add-pop-up-content">
+        <div class="title">
+            <p>新增</p>
+            <img src="data:image/svg+xml,%3csvg%20width='24.000000'%20height='24.000000'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdesc%3e%20Created%20with%20Pixso.%20%3c/desc%3e%3cdefs/%3e%3crect%20id='close'%20width='24.000000'%20height='24.000000'%20fill='%23FFFFFF'%20fill-opacity='0'/%3e%3cpath%20id='矢量%207'%20d='M13.41%2012L18.32%207.09C18.74%206.67%2018.75%206.03%2018.36%205.63C17.96%205.24%2017.32%205.25%2016.9%205.67L12%2010.58L7.09%205.67C6.67%205.25%206.03%205.24%205.63%205.63C5.24%206.03%205.25%206.67%205.67%207.09L10.58%2012L5.67%2016.9C5.25%2017.32%205.24%2017.96%205.63%2018.36C6.03%2018.75%206.67%2018.74%207.09%2018.32L12%2013.41L16.9%2018.32C17.32%2018.74%2017.96%2018.75%2018.36%2018.36C18.75%2017.96%2018.74%2017.32%2018.32%2016.9L13.41%2012Z'%20fill='%236B6B6B'%20fill-opacity='1.000000'%20fill-rule='evenodd'/%3e%3c/svg%3e"
+                 alt="关闭" class="close-btn" aria-label="关闭弹窗">
+        </div>
+        <hr>
+        <form id="submissionForm" class="form-wrapper">
+            <div class="input-item">
+                <label><span>*</span>网站链接</label>
+                <input type="url" name="url" required placeholder="请输入网站链接（http://或https://开头）">
+            </div>
+            <div class="input-item">
+                <label><span>*</span>网站名称</label>
+                <input type="text" name="name" required placeholder="请输入网站名称">
+            </div>
+            <div class="input-item">
+                <label>评分系数</label>
+                <div class="rating-wrapper">
+                    <div class="star-rating">
+                        <span class="star" data-value="1" tabindex="0" aria-label="1分">&#9733;</span>
+                        <span class="star" data-value="2" tabindex="0" aria-label="2分">&#9733;</span>
+                        <span class="star" data-value="3" tabindex="0" aria-label="3分">&#9733;</span>
+                        <span class="star" data-value="4" tabindex="0" aria-label="4分">&#9733;</span>
+                        <span class="star" data-value="5" tabindex="0" aria-label="5分">&#9733;</span>
+                    </div>
+                    <div class="rating-value"><span id="rating">0</span> 分</div>
+                </div>
+            </div>
+            <div class="input-item">
+                <label>图标地址</label>
+                <input type="url" name="favicon" placeholder="请输入图标URL">
+            </div>
+            <div class="input-item">
+                <label>网站描述</label>
+                <textarea name="description" rows="3" placeholder="请输入网站描述"></textarea>
+            </div>
+            <div class="input-item">
+                <label>导航标签</label>
+                <ul class="label-list">
+                    {% if tags %}
+                        {% for tag in tags %}
+                            {# 只显示前6条标签 #}
+                            {% if loop.index <= 6 %}
+                                <li class="tag-item" data-id="{{ tag.id }}"
+                                    data-name="{{ tag.tag_name }}">{{ tag.tag_name }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    <li data-name="GitHub">GitHub</li>
+                </ul>
+                <input type="hidden" name="selectedTags" id="selectedTags" value="">
+            </div>
+            <div class="input-item github-link">
+                <label>GitHub地址</label>
+                <input type="url" name="github" placeholder="请输入GitHub地址">
+            </div>
+        </form>
+        <hr>
+        <div class="btn-group">
+            <button class="cancel">取消</button>
+            <button type="button" class="confirm" id="submitBtn">确定</button>
+        </div>
+    </div>
+</div>

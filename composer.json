@@ -1,31 +1,32 @@
 {
-    "name": "ponycool/navigation",
-    "description": "基于Codeigniter4和React简洁易用的网址导航",
-    "type": "project",
-    "homepage": "https://ponycool.com/navigation/index",
-    "require": {
-        "php": "^8.2",
-        "codeigniter4/framework": "^4.6",
-        "ramsey/uuid": "^4.7",
-        "twig/twig": "^3.19",
-        "nesbot/carbon": "^3.8",
-        "ext-bcmath": "*",
-        "ponycool/ponycool-library": "^1.0",
-        "ext-iconv": "*",
-      "ext-dom": "*",
-      "ext-libxml": "*",
-        "symfony/uid": "^7.3"
-    },
-    "license": "GPL-3.0",
-    "autoload": {
-        "exclude-from-classmap": [
-            "**/Database/Migrations/**"
-        ]
-    },
-    "authors": [
-        {
-            "name": "pony"
-        }
-    ],
-    "minimum-stability": "stable"
+  "name": "ponycool/navigation",
+  "description": "基于Codeigniter4和React简洁易用的网址导航",
+  "type": "project",
+  "homepage": "https://ponycool.com/navigation/index",
+  "require": {
+    "php": "^8.2",
+    "codeigniter4/framework": "^4.6",
+    "ramsey/uuid": "^4.7",
+    "twig/twig": "^3.19",
+    "nesbot/carbon": "^3.8",
+    "ext-bcmath": "*",
+    "ponycool/ponycool-library": "^1.0",
+    "ext-iconv": "*",
+    "ext-dom": "*",
+    "ext-libxml": "*",
+    "ext-curl": "*",
+    "symfony/uid": "^7.3"
+  },
+  "license": "GPL-3.0",
+  "autoload": {
+    "exclude-from-classmap": [
+      "**/Database/Migrations/**"
+    ]
+  },
+  "authors": [
+    {
+      "name": "pony"
+    }
+  ],
+  "minimum-stability": "stable"
 }

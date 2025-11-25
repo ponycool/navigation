@@ -5,6 +5,7 @@
     {{ parent() }}
     <link rel="stylesheet" crossorigin href="{{ "/css/global.css?v=#{version}" }}">
     <link rel="stylesheet" crossorigin href="{{ "/css/index.css?v=#{version}" }}">
+    <link rel="stylesheet" crossorigin href="{{ "/css/loading.css?v=#{version}" }}">
     <style>
         .web .shortcut-page {
             background: url({{"/img/shortcut-bg.jpeg"}}) no-repeat;
@@ -20,6 +21,8 @@
     <script src="{{ "/js/search.js?v=#{version}" }}" type="text/javascript"></script>
     <script src="{{ "/js/share.js?v=#{version}" }}" type="text/javascript"></script>
     <script src="{{ "/js/shortcut.js?v=#{version}" }}" type="text/javascript"></script>
+    <script src="{{ "/js/loading.js?v=#{version}" }}" type="text/javascript"></script>
+    <script src="{{ "/js/submission.js?v=#{version}" }}" type="text/javascript"></script>
 {% endblock %}
 
 {# 主体 #}
@@ -49,75 +52,18 @@
         {% include 'desktop.twig' %}
         {# 浮动工具栏 #}
         {% include 'toolbar.twig' %}
-        <div class="add-pop-up">
-            <div class="add-pop-up-content">
-                <div class="title">
-                    <p>新增</p>
-                    <img src="data:image/svg+xml,%3csvg%20width='24.000000'%20height='24.000000'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdesc%3e%20Created%20with%20Pixso.%20%3c/desc%3e%3cdefs/%3e%3crect%20id='close'%20width='24.000000'%20height='24.000000'%20fill='%23FFFFFF'%20fill-opacity='0'/%3e%3cpath%20id='矢量%207'%20d='M13.41%2012L18.32%207.09C18.74%206.67%2018.75%206.03%2018.36%205.63C17.96%205.24%2017.32%205.25%2016.9%205.67L12%2010.58L7.09%205.67C6.67%205.25%206.03%205.24%205.63%205.63C5.24%206.03%205.25%206.67%205.67%207.09L10.58%2012L5.67%2016.9C5.25%2017.32%205.24%2017.96%205.63%2018.36C6.03%2018.75%206.67%2018.74%207.09%2018.32L12%2013.41L16.9%2018.32C17.32%2018.74%2017.96%2018.75%2018.36%2018.36C18.75%2017.96%2018.74%2017.32%2018.32%2016.9L13.41%2012Z'%20fill='%236B6B6B'%20fill-opacity='1.000000'%20fill-rule='evenodd'/%3e%3c/svg%3e"
-                         alt="" class="close-btn">
-                </div>
-                <hr>
-                <div class="form-wrapper">
-                    <div class="input-item">
-                        <label><span>*</span>网站链接</label>
-                        <input type="text">
-                    </div>
-                    <div class="input-item">
-                        <label><span>*</span>网站名称</label>
-                        <input type="text">
-                    </div>
-                    <div class="input-item">
-                        <label>评分系数</label>
-                        <div class="rating-wrapper">
-                            <div class="star-rating">
-                                <span class="star" data-value="1">&#9733;</span>
-                                <span class="star" data-value="2">&#9733;</span>
-                                <span class="star" data-value="3">&#9733;</span>
-                                <span class="star" data-value="4">&#9733;</span>
-                                <span class="star" data-value="5">&#9733;</span>
-                            </div>
-                            <div class="rating-value"><span id="rating">0</span> 分</div>
-                        </div>
-                    </div>
-                    <div class="input-item">
-                        <label>图标地址</label>
-                        <input type="text">
-                    </div>
-                    <div class="input-item">
-                        <label>网站描述</label>
-                        <textarea></textarea>
-                    </div>
-                    <div class="input-item">
-                        <label>导航标签</label>
-                        <ul class="label-list">
-                            <li data-name="已过时">已过时</li>
-                            <li data-name="停止维护">停止维护</li>
-                            <li data-name="官方">官方</li>
-                            <li data-name="人气最高">人气最高</li>
-                            <li data-name="优质">优质</li>
-                            <li data-name="中文">中文</li>
-                            <li data-name="英文">英文</li>
-                            <li data-name="GitHub">GitHub</li>
-                        </ul>
-                    </div>
-                    <div class="input-item github-link">
-                        <label>GitHub地址</label>
-                        <input type="text">
-                    </div>
-                </div>
-                <hr>
-                <div class="btn-group">
-                    <button class="cancel">取消</button>
-                    <button class="confirm">确定</button>
-                </div>
-            </div>
-        </div>
+        {# 网站提交 #}
+        {% include 'submission.twig' %}
         <div class="toast"></div>
         <div class="git-sub">
             <a href="https://github.com/ponycool/navigation" target="_blank">
-                <svg width="50.000000" height="50.000000" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <path d="M18.56 42.73C10.19 44.55 8.47 39.2 8.47 39.2C7.1 35.74 5.13 34.83 5.13 34.83C2.36 32.98 5.34 33.01 5.34 33.01C8.33 33.26 9.95 36.12 9.95 36.12C12.65 40.63 16.87 39.44 18.66 38.57L18.56 42.73Z" fill="#fff" fill-opacity="1.000000" fill-rule="nonzero" class="octo-arm" style="transform-origin: 20px 40px" />
-                    <path d="M17.08 47.99C17.08 48.06 18.95 47.22 18.95 46.45L18.98 36.77C19.27 34.81 20.05 33.48 20.95 32.75C14.15 31.98 7.03 29.43 7 18C7.03 14.74 8.21 12.05 10.18 9.99C9.82 9.22 8.78 6.18 10.47 2.09C10.47 2.09 13.01 1.29 18.87 5.13C21.27 4.47 23.88 4.15 26.5 4.12C29.07 4.12 31.72 4.47 34.15 5.17C39.98 1.29 42.56 2.06 42.56 2.06C44.21 6.18 43.17 9.22 42.85 9.96C44.81 12.09 46 14.71 46 18C46 29.46 38.84 31.98 32.04 32.75C33.11 33.66 34.12 35.47 34.12 38.27L34.08 46.41C34.08 47.25 36.23 48.09 36.26 47.99L17.08 47.99Z" fill="#fff" fill-opacity="1.000000" fill-rule="nonzero" class="octo-body">
+                <svg width="50.000000" height="50.000000" viewBox="0 0 50 50" fill="none"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M18.56 42.73C10.19 44.55 8.47 39.2 8.47 39.2C7.1 35.74 5.13 34.83 5.13 34.83C2.36 32.98 5.34 33.01 5.34 33.01C8.33 33.26 9.95 36.12 9.95 36.12C12.65 40.63 16.87 39.44 18.66 38.57L18.56 42.73Z"
+                          fill="#fff" fill-opacity="1.000000" fill-rule="nonzero" class="octo-arm"
+                          style="transform-origin: 20px 40px"/>
+                    <path d="M17.08 47.99C17.08 48.06 18.95 47.22 18.95 46.45L18.98 36.77C19.27 34.81 20.05 33.48 20.95 32.75C14.15 31.98 7.03 29.43 7 18C7.03 14.74 8.21 12.05 10.18 9.99C9.82 9.22 8.78 6.18 10.47 2.09C10.47 2.09 13.01 1.29 18.87 5.13C21.27 4.47 23.88 4.15 26.5 4.12C29.07 4.12 31.72 4.47 34.15 5.17C39.98 1.29 42.56 2.06 42.56 2.06C44.21 6.18 43.17 9.22 42.85 9.96C44.81 12.09 46 14.71 46 18C46 29.46 38.84 31.98 32.04 32.75C33.11 33.66 34.12 35.47 34.12 38.27L34.08 46.41C34.08 47.25 36.23 48.09 36.26 47.99L17.08 47.99Z"
+                          fill="#fff" fill-opacity="1.000000" fill-rule="nonzero" class="octo-body">
                         <style>
                             @keyframes octocat {
                                 0%,

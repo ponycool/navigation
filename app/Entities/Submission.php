@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Pony
- * Date: 2025/07/05
- * Time: 14:45 下午
+ * Date: 2025/11/25
+ * Time: 17:06 下午
  */
 declare(strict_types=1);
 
@@ -20,7 +20,7 @@ class Submission extends Base
     protected string $website_name;
     protected string $url;
     protected string $description;
-    protected string $icon_url;
+    protected string $favicon;
     protected int $rating;
     protected int $status;
     protected string $created_at;
@@ -185,19 +185,19 @@ class Submission extends Base
     /**
      * @return string
      */
-    public function getIconUrl(): string
+    public function getFavicon(): string
     {
-        return $this->icon_url;
+        return $this->favicon;
     }
 
     /**
-     * @param string $icon_url
+     * @param string $favicon
      * @return $this
      */
-    public function setIconUrl(string $icon_url): Submission
+    public function setFavicon(string $favicon): Submission
     {
-        $this->icon_url = $icon_url;
-        $this->attributes['icon_url'] = $this->icon_url;
+        $this->favicon = $favicon;
+        $this->attributes['favicon'] = $this->favicon;
         return $this;
     }
 

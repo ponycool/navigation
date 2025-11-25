@@ -1,0 +1,372 @@
+/* 简约风格Loading组件样式 */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* 确保在所有设备上正确居中 */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.loading-container {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 20px;
+    box-shadow: none;
+    min-width: 180px;
+    text-align: center;
+    transition: all 0.3s ease;
+    /* 确保容器本身不影响居中 */
+    margin: 0;
+    position: relative;
+}
+
+/* 简约风格的loading动画 */
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 20px;
+    border: 3px solid rgba(66, 133, 244, 0.2);
+    border-top: 3px solid #4285f4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 15px rgba(66, 133, 244, 0.5);
+    position: relative;
+}
+
+/* 粒子特效容器 */
+.loading-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* 粒子样式 */
+.loading-particle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #4285f4;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: particleFloat 3s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 粒子浮动动画 */
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px) scale(0.8);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-40px) translateX(20px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* 移除装饰性背景网格 */
+.loading-grid {
+    display: none;
+}
+
+/* 加载文本样式 */
+.loading-text {
+    color: #4285f4;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    position: relative;
+}
+
+/* 进度条样式 */
+.loading-progress-container {
+    width: 100%;
+    height: 3px;
+    background-color: rgba(66, 133, 244, 0.2);
+    border-radius: 2px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 8px rgba(66, 133, 244, 0.3);
+}
+
+.loading-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #4285f4, #8ab4f8);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 进度条发光效果 */
+.loading-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: progressGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes progressGlow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* 加载状态过渡效果 */
+.loading-overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 加载完成的成功效果 */
+.loading-success .loading-spinner {
+    display: none;
+}
+
+.loading-success-icon {
+    display: none;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 20px;
+    color: #4285f4;
+    border: 2px solid #4285f4;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(66, 133, 244, 0.5);
+    animation: successPulse 0.5s ease-out;
+}
+
+@keyframes successPulse {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.loading-success-icon::before {
+    content: '✓';
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 36px;
+    display: block;
+}
+
+.loading-success .loading-success-icon {
+    display: block;
+}
+
+.loading-success .loading-text {
+    color: #4285f4;
+}
+
+/* 移动端适配 - 平板设备 */
+@media (max-width: 768px) {
+    .loading-overlay {
+        /* 适配平板的触摸操作 */
+        touch-action: none;
+        /* 确保绝对居中 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .loading-container {
+        margin: 0;
+        padding: 18px;
+        min-width: 160px;
+        /* 增加触摸友好度 */
+        width: auto;
+        max-width: none;
+        margin: 0 auto;
+        /* 使用弹性布局内部居中 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loading-spinner {
+        width: 36px;
+        height: 36px;
+        border-width: 2.5px;
+    }
+
+    .loading-text {
+        font-size: 14px;
+    }
+
+    .loading-progress-container {
+        margin-top: 12px;
+    }
+
+    /* 平板上的成功图标适配 */
+    .loading-success-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .loading-success-icon::before {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+
+/* 移动端适配 - 手机设备 */
+@media (max-width: 480px) {
+    .loading-overlay {
+        /* 移除模糊效果以提升性能 */
+        backdrop-filter: none;
+        background-color: rgba(10, 25, 47, 0.9);
+        /* 优化触摸体验 */
+        touch-action: none;
+        /* 确保绝对居中 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* 防止iOS橡皮筋效果 */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        /* 使用vw/vh保证在各种手机屏幕上正确显示 */
+        width: 100vw;
+        height: 100vh;
+        /* 修复某些设备上的滚动问题 */
+        overflow: hidden;
+    }
+
+    .loading-container {
+        margin: 0;
+        padding: 14px;
+        min-width: 140px;
+        max-width: none;
+        box-shadow: none;
+        /* 确保容器居中 */
+        width: auto;
+        margin: 0;
+        /* 使用弹性布局内部居中 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loading-spinner {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 15px;
+        border-width: 2px;
+    }
+
+    .loading-text {
+        font-size: 13px;
+        /* 增加行高以提升可读性 */
+        line-height: 1.4;
+    }
+
+    .loading-progress-container {
+        height: 2px;
+        margin-top: 10px;
+    }
+
+    /* 手机上的成功图标适配 */
+    .loading-success-icon {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 15px;
+        border-width: 1.5px;
+    }
+
+    .loading-success-icon::before {
+        font-size: 22px;
+        line-height: 28px;
+    }
+}
+
+/* 移动端适配 - 非常小的屏幕 */
+@media (max-width: 320px) {
+    .loading-container {
+        padding: 12px;
+        min-width: 120px;
+        border-radius: 0;
+        /* 确保在极小屏幕上也能居中 */
+        width: auto;
+        margin: 0;
+        /* 确保内部元素居中 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loading-spinner {
+        width: 28px;
+        height: 28px;
+        border-width: 1.5px;
+    }
+
+    .loading-text {
+        font-size: 11px;
+    }
+
+    .loading-success-icon {
+        width: 28px;
+        height: 28px;
+        border-width: 1px;
+    }
+
+    .loading-success-icon::before {
+        font-size: 20px;
+        line-height: 26px;
+    }
+}
+
+/* 高DPI屏幕适配 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .loading-spinner {
+        border-width: 2px;
+    }
+
+    .loading-progress-container {
+        height: 2px;
+    }
+}
