@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Controllers\Api\Open\Website;
+namespace App\Controllers\Api\Open\Website\Meta;
 
 use App\Controllers\Api\Base;
 use App\Enums\Code;
