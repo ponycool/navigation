@@ -179,7 +179,7 @@ class SubmissionService extends BaseService
                 throw new Exception('网址收录失败');
             }
             // 批量保存标签
-            if (!is_null($tagData)) {
+            if (!empty($tagData)) {
                 $tags = [];
                 foreach ($tagData as $item) {
                     $tag = new SubmissionTag();
@@ -243,7 +243,11 @@ class SubmissionService extends BaseService
             if (json_last_error() !== JSON_ERROR_NONE) {
                 throw new Exception('标签格式错误,必须为有效的JSON字符串');
             }
-            $data['tags'] = $tags;
+            if (is_array($tags) && !empty($tags)) {
+                $data['tags'] = $tags;
+            } else {
+                unset($data['tags']);
+            }
         }
         return $data;
     }
