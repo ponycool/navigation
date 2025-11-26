@@ -245,6 +245,8 @@ class SubmissionService extends BaseService
             }
             if (is_array($tags) && !empty($tags)) {
                 $data['tags'] = $tags;
+            } else {
+                unset($data['tags']);
             }
         }
         return $data;
