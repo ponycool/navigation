@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 选中的标签
     const selectedTagsInput = document.getElementById('selectedTags');
     let selectedTags = [];
+    const githubTag = document.getElementById('githubTag');
     // 全局错误提示
     let globalErrorContainer = document.querySelector('.global-error-container');
 
@@ -194,6 +195,16 @@ document.addEventListener('DOMContentLoaded', function () {
         return formData;
     }
 
+    // 重置表单
+    function resetForm() {
+        form.reset();
+        resetRating();
+        selectedTags = [];
+        selectedTagsInput.value = '';
+        tagItems.forEach(tag => tag.classList.remove('label-active'));
+        githubTag.classList.remove('label-active');
+    }
+
     // 提交表单
     async function submitForm() {
         // 先执行验证，验证不通过则不提交
@@ -231,11 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // 提交成功：清除错误、重置表单
             clearAllErrors();
-            form.reset();
-            resetRating();
-            selectedTags = [];
-            selectedTagsInput.value = '';
-            tagItems.forEach(tag => tag.classList.remove('label-active'));
+            resetForm();
 
             // 显示成功提示
             setTimeout(() => {
