@@ -77,9 +77,9 @@ class SubmissionService extends BaseService
                 ]
             ],
             'rating' => [
-                'rules' => 'if_exist|is_natural',
+                'rules' => 'if_exist|is_natural_no_zero',
                 'errors' => [
-                    'is_natural' => '参数网站站点评分[rating]无效，必须为自然数',
+                    'is_natural_no_zero' => '参数网站站点评分[rating]无效，必须为非零自然数',
                 ]
             ],
             'tags' => [
@@ -248,6 +248,14 @@ class SubmissionService extends BaseService
             } else {
                 unset($data['tags']);
             }
+        }
+        $rating = $data['rating'] ?? null;
+        if (!is_null($rating)) {
+            $data['rating'] = (int)$rating;
+            if ($data['rating'] < 1 || $data['rating'] > 100) {
+                throw new Exception('评分必须为1-100的整数');
+            }
+            $data['rating'] = (int)$rating;
         }
         return $data;
     }
