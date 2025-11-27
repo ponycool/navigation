@@ -17,7 +17,8 @@
 {% block js %}
     {{ parent() }}
     <script type="module" crossorigin src="{{ "/js/index.js?v=#{version}" }}"></script>
-    <link rel="modulepreload" crossorigin href="{{ "/js/common.js?v=#{version}" }}">
+    {# index.js 已自动引入 #}
+    {# <link rel="modulepreload" crossorigin href="{{ "/js/common.js?v=#{version}" }}"> #}
     <script src="{{ "/js/search.js?v=#{version}" }}" type="text/javascript"></script>
     <script src="{{ "/js/share.js?v=#{version}" }}" type="text/javascript"></script>
     <script src="{{ "/js/shortcut.js?v=#{version}" }}" type="text/javascript"></script>
