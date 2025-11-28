@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const url = form.url.value.trim();
         const name = form.name.value.trim();
         const favicon = form.favicon.value.trim();
-        const websiteRating = rating.innerText ? parseInt(rating.innerText) : 0;
+        const websiteRating = rating.innerText ? parseFloat(rating.innerText) : 0;
         const github = form.github.value.trim();
 
         // 验证网站链接
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const cid = Number.isInteger(categoryId) ? categoryId : 0;
         const description = form.description.value.trim();
         const favicon = form.favicon.value.trim();
-        const websiteRating = rating.innerText ? parseInt(rating.innerText) : 0;
+        const websiteRating = rating.innerText ? parseFloat(rating.innerText) : 0;
         const tags = JSON.stringify(selectedTags);
         const github = form.github.value.trim();
         const formData = {
