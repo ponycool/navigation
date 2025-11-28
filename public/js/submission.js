@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 选中的标签
     const selectedTagsInput = document.getElementById('selectedTags');
     let selectedTags = [];
+    const githubTag = document.getElementById('githubTag');
     // 全局错误提示
     let globalErrorContainer = document.querySelector('.global-error-container');
 
@@ -126,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const url = form.url.value.trim();
         const name = form.name.value.trim();
         const favicon = form.favicon.value.trim();
+        const websiteRating = rating.innerText ? parseInt(rating.innerText) : 0;
         const github = form.github.value.trim();
 
         // 验证网站链接
@@ -149,6 +151,18 @@ document.addEventListener('DOMContentLoaded', function () {
         // 验证图标地址（可选，有值时验证格式）
         if (favicon && !/^https?:\/\/.+/i.test(favicon)) {
             showError('favicon', '图标地址格式不正确');
+            isValid = false;
+        }
+
+        // 校验评分，评分必须是 0~5 之间的数字，且为 0.5 的倍数
+        if (websiteRating && (
+            typeof websiteRating !== 'number' ||
+            isNaN(websiteRating) ||
+            websiteRating < 0 ||
+            websiteRating > 5 ||
+            (websiteRating * 2) % 1 !== 0
+        )) {
+            showError('', '请输入正确的评分（评分必须是 0~5 之间的数字，且为 0.5 的倍数）');
             isValid = false;
         }
 
@@ -183,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.favicon = favicon;
         }
         if (websiteRating > 0) {
-            formData.rating = websiteRating;
+            formData.rating = websiteRating * 20;
         }
         if (tags) {
             formData.tags = tags;
@@ -192,6 +206,16 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.github = github;
         }
         return formData;
+    }
+
+    // 重置表单
+    function resetForm() {
+        form.reset();
+        resetRating();
+        selectedTags = [];
+        selectedTagsInput.value = '';
+        tagItems.forEach(tag => tag.classList.remove('label-active'));
+        githubTag.classList.remove('label-active');
     }
 
     // 提交表单
@@ -231,11 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // 提交成功：清除错误、重置表单
             clearAllErrors();
-            form.reset();
-            resetRating();
-            selectedTags = [];
-            selectedTagsInput.value = '';
-            tagItems.forEach(tag => tag.classList.remove('label-active'));
+            resetForm();
 
             // 显示成功提示
             setTimeout(() => {
