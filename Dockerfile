@@ -1,4 +1,4 @@
-FROM php:8.2-fpm-alpine
+FROM php:8.3-fpm-alpine
 LABEL maintainer="Kuma Navigation DOCKER MAINTAINER <pony@ponycool.com>"
 
 ENV TIMEZONE=Asia/Shanghai
