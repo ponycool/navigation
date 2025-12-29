@@ -36,7 +36,7 @@ A simple and easy-to-use website navigation based on Codeigniter4 and React
 
 ### System Requirements
 
-We recommend running PHP 8.2 or higher on your server; the default database software is SQLite3, but you can also use MySQL 5.7 or higher, or MariaDB 10.3 or higher.
+We recommend running PHP 8.3 or higher on your server; the default database software is SQLite3, but you can also use MySQL 5.7 or higher, or MariaDB 10.3 or higher.
 We also recommend Apache or Nginx as reliable options for running Cool Code Navigation, but you can choose other HTTP server software.
 
 ### Running with Docker
