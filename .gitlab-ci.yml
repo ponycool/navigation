@@ -25,8 +25,8 @@ build:
   variables:
     DOCKER_IMAGE_NAME: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   before_script:
-    - docker login "$CI_REGISTRY_SERVER" -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
-    - docker login "$ALIYUN_CR_SERVER" -u "$ALIYUN_CR_USER" -p "$ALIYUN_CR_PASSWORD"
+    - echo "$CI_REGISTRY_PASSWORD" | docker login "$CI_REGISTRY_SERVER" -u "$CI_REGISTRY_USER" --password-stdin
+    - echo "$ALIYUN_CR_PASSWORD" | docker login "$ALIYUN_CR_SERVER" -u "$ALIYUN_CR_USER" --password-stdin
   script:
     # docker in docker跨平台编译遇到无法解决的错误，暂时使用手动编译
     - docker build -t "$DOCKER_IMAGE_NAME" .
