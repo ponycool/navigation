@@ -4,7 +4,7 @@
   "type": "project",
   "homepage": "https://ponycool.com/navigation/index",
   "require": {
-    "php": "^8.2",
+    "php": "^8.3",
     "codeigniter4/framework": "^4.6",
     "ramsey/uuid": "^4.7",
     "twig/twig": "^3.19",
