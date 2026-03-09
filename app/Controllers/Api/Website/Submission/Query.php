@@ -2,28 +2,24 @@
 /**
  * Created By PhpStorm
  * User: Pony
- * Data: 2025/3/20
- * Time: 10:35
+ * Data: 2026/3/6
+ * Time: 10:00
  */
 declare(strict_types=1);
 
-namespace App\Controllers\Api\Record;
+namespace App\Controllers\Api\Website\Submission;
 
 use App\Controllers\Api\Base;
 use App\Enums\Code;
-use App\Services\RecordService;
+use App\Services\SubmissionService;
 use Exception;
 
 class Query extends Base
 {
-    /**
-     * 获取记录列表
-     * @return void
-     */
     public function index(): void
     {
         $this->postFilter();
-        $svc = new RecordService();
+        $svc = new SubmissionService();
         $rules = $svc->getQueryRules();
         $this->verifyJsonInputByRules($rules);
         try {
@@ -31,13 +27,13 @@ class Query extends Base
             $list = $svc->getList($params);
             $data = [
                 'code' => Code::OK,
-                'message' => '获取记录列表成功',
+                'message' => '获取收录记录成功'
             ];
             $data = array_merge($data, $list);
         } catch (Exception $e) {
             $data = [
                 'code' => Code::FAIL,
-                'message' => $e->getMessage() ?: '获取记录列表失败',
+                'message' => $e->getMessage() ?: '获取收录记录失败'
             ];
         }
         $this->render($data);

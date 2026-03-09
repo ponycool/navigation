@@ -54,6 +54,18 @@ trait ValidationRuleTrait
                     'is_natural_no_zero' => '参数排序索引[sortIndex]无效，必须为非零自然数',
                 ]
             ],
+            'sortField' => [
+                'rules' => 'if_exist|max_length[50]',
+                'errors' => [
+                    'max_length' => '参数排序字段[sortField]无效，字符长度不能超过50个字符',
+                ]
+            ],
+            'sortOrder' => [
+                'rules' => 'if_exist|in_list[ASC,DESC]',
+                'errors' => [
+                    'in_list' => '参数排序方式[sortOrder]无效，必须为"ASC"或"DESC"',
+                ]
+            ],
             'startTime' => [
                 'rules' => 'if_exist|valid_date[Y-m-d H:i:s]',
                 'errors' => [

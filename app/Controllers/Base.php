@@ -580,7 +580,7 @@ class Base extends BaseController
      */
     protected function getJsonInputParams(): array
     {
-        return $this->request->getJSON(true);
+        return $this->request->getJSON(true) ?? [];
     }
 
     /**

@@ -102,6 +102,78 @@ class SubmissionService extends BaseService
         );
     }
 
+    public function getQueryRules(): array
+    {
+        $rules = [
+            'status' => [
+                'rules' => 'if_exist|in_list[0,1,2]',
+                'errors' => [
+                    'in_list' => '参数状态[status]无效，请输入有效的状态值 0:待审核 1:已收录 2:审核未通过',
+                ]
+            ]
+        ];
+        return array_merge(
+            $this->getBaseRules(),
+            $rules
+        );
+    }
+
+    public function getList(array $data): array
+    {
+        $data = $this->prepareData($data);
+        $page = (int)($data['page'] ?? 1);
+        $pageSize = (int)($data['page_size'] ?? 10);
+        $websiteName = $data['website_name'] ?? null;
+        $url = $data['url'] ?? null;
+        $status = isset($data['status']) ? (int)$data['status'] : null;
+        $startTime = $data['start_time'] ?? null;
+        $endTime = $data['end_time'] ?? null;
+        $keyword = $data['keyword'] ?? null;
+        $sortField = $data['sort_field'] ?? 'created_at';
+        $sortOrder = $data['sort_order'] ?? 'DESC';
+
+        $allowedSortFields = ['created_at', 'updated_at', 'status', 'rating'];
+        if (!in_array($sortField, $allowedSortFields)) {
+            $sortField = 'created_at';
+        }
+
+        $sql = [
+            'SELECT id,uuid,ulid,cid,website_name,url,description,favicon,rating,status,created_at,updated_at ',
+            'FROM swap_submission ',
+            'WHERE deleted_at IS NULL ',
+        ];
+        $sqlParams = [];
+
+        if (!is_null($websiteName)) {
+            $sql[] = 'AND website_name LIKE ? ';
+            $sqlParams[] = '%' . $websiteName . '%';
+        }
+        if (!is_null($url)) {
+            $sql[] = 'AND url LIKE ? ';
+            $sqlParams[] = '%' . $url . '%';
+        }
+        if (!is_null($status)) {
+            $sql[] = 'AND status = ? ';
+            $sqlParams[] = $status;
+        }
+        if (!is_null($startTime)) {
+            $sql[] = 'AND created_at >= ? ';
+            $sqlParams[] = $startTime;
+        }
+        if (!is_null($endTime)) {
+            $sql[] = 'AND created_at <= ? ';
+            $sqlParams[] = $endTime;
+        }
+        if (!is_null($keyword)) {
+            $sql[] = 'AND (website_name LIKE ? OR url LIKE ?) ';
+            $sqlParams[] = '%' . $keyword . '%';
+            $sqlParams[] = '%' . $keyword . '%';
+        }
+        $sql[] = 'ORDER BY ' . $sortField . ' ' . $sortOrder;
+        $sql = $this->assembleSql($sql);
+        return $this->getPageByQuery($sql, $sqlParams, $page, $pageSize);
+    }
+
     /**
      * @param array $data
      * @return bool
