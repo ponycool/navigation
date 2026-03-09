@@ -24,13 +24,9 @@
 
 ## 预览
 
-#### WEB端
+![预览](https://cdn.static.ponycool.com/img/navigation/screenshot/screenshot.gif)
 
-![WEB端](https://cdn.static.ponycool.com/img/navigation/screenshot/web.png)
-
-#### 管理后台
-
-![管理后台](https://cdn.static.ponycool.com/img/navigation/screenshot/admin_screenshot_compressed.png)
+> 预览图由 [PicRoll（瞬动）](http://tools.dev.local/pic-roll/index) 创建
 
 ## 安装
 
