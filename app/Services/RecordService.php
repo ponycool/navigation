@@ -95,14 +95,16 @@ class RecordService extends BaseService
      */
     public function getQueryRules(): array
     {
-        return array_merge($this->getBaseRules(), [
-            'keyword' => [
-                'rules' => 'if_exist|max_length[50]',
-                'errors' => [
-                    'max_length' => '参数搜索关键词[keyword]无效，字符长度不能超过50个字符',
-                ]
-            ],
-        ]);
+        return array_merge(
+            $this->getBaseRules(),
+            [
+                'keyword' => [
+                    'rules' => 'if_exist|max_length[50]',
+                    'errors' => [
+                        'max_length' => '参数搜索关键词[keyword]无效，字符长度不能超过50个字符',
+                    ]
+                ],
+            ]);
     }
 
     /**
