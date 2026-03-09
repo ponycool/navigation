@@ -24,13 +24,9 @@ A simple and easy-to-use website navigation based on Codeigniter4 and React
 
 ## Preview
 
-#### Web Version
+![Preview](https://cdn.static.ponycool.com/img/navigation/screenshot/screenshot.gif)
 
-![Web Version](https://cdn.static.ponycool.com/img/navigation/screenshot/web.png)
-
-#### Admin Dashboard
-
-![Admin Dashboard](https://cdn.static.ponycool.com/img/navigation/screenshot/admin_screenshot_compressed.png)
+> Preview created by [PicRoll](http://tools.dev.local/pic-roll/index)
 
 ## Installation
 
